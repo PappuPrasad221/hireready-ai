@@ -40,13 +40,14 @@ const InterviewRoom = () => {
   const chatEndRef = useRef(null)
   const answerModeRef = useRef(answerMode)
 
-  const interviewQuestions = interviewState.questions?.length ? interviewState.questions : [
+  const initialInterviewQuestions = interviewState.questions?.length ? interviewState.questions : [
     "Tell me about yourself and your experience relevant to this role.",
     "What interests you most about this position and our company?",
     "Describe a challenging project you've worked on and how you overcame obstacles.",
     "How do you stay updated with the latest technologies and industry trends?",
     "Where do you see yourself professionally in the next 3-5 years?"
   ]
+  const [activeQuestions, setActiveQuestions] = useState(initialInterviewQuestions)
 
   const getQuestionText = (question) => {
     if (!question) return ''
@@ -151,8 +152,8 @@ const InterviewRoom = () => {
   }, [chatMessages, transcript])
 
   const askQuestion = (index) => {
-    if (index < interviewQuestions.length) {
-      const nextQuestionData = interviewQuestions[index]
+    if (index < activeQuestions.length) {
+      const nextQuestionData = activeQuestions[index]
       setCurrentQuestion(nextQuestionData)
       setIsAISpeaking(true)
       appendChatMessage({
@@ -345,6 +346,7 @@ const InterviewRoom = () => {
   }
 
   const startInterview = () => {
+    setActiveQuestions(initialInterviewQuestions)
     setIsInterviewActive(true)
     setCurrentQuestionIndex(0)
     setTimer(0)
@@ -460,7 +462,7 @@ const InterviewRoom = () => {
         user_id: 'user_123',
         company: interviewState.company || 'Unknown',
         role: interviewState.role || 'Unknown',
-        questions: interviewQuestions,
+        questions: activeQuestions,
         answers: finalAnswers,
         behavior_data: finalAnswers.map(item => item.behavior_data || {}),
         answer_modes: finalAnswers.map(item => item.input_mode || 'voice'),
@@ -475,14 +477,65 @@ const InterviewRoom = () => {
     }
   }
 
+  const maybeInsertFollowupQuestion = async (answerRecord, finalAnswers) => {
+    if (!answerRecord || !currentQuestion || currentQuestion?.is_followup) return false
+
+    try {
+      const response = await apiService.generateFollowupQuestion({
+        question: currentQuestion,
+        answer: answerRecord.answer,
+        question_type: typeof currentQuestion === 'string' ? 'general' : currentQuestion.type,
+        behavior_data: {
+          score: answerRecord.scores?.overall || 0,
+          missing_points: answerRecord.feedback?.missing_points || []
+        },
+        resume_context: interviewState.resumeData || {},
+        job_insights: interviewState.jobInsights || {},
+        evaluation: {
+          scores: answerRecord.scores || {},
+          feedback: answerRecord.feedback || {},
+          overall_score: answerRecord.scores?.overall || 0
+        },
+        previous_answers: finalAnswers.slice(-6)
+      })
+
+      if (!response?.required || !response.followup_question) return false
+
+      setActiveQuestions(prev => {
+        const followupId = response.followup_question.id
+        if (prev.some(question => typeof question !== 'string' && question.id === followupId)) {
+          return prev
+        }
+        const next = [...prev]
+        next.splice(currentQuestionIndex + 1, 0, response.followup_question)
+        return next
+      })
+
+      appendChatMessage({
+        role: 'ai',
+        label: 'Adaptive follow-up',
+        text: response.followup_question.question
+      })
+
+      return true
+    } catch (error) {
+      console.error('Follow-up generation failed:', error)
+      return false
+    }
+  }
+
   const nextQuestion = async () => {
     stopSpeechRecognition()
-    if (currentQuestionIndex >= interviewQuestions.length - 1) {
-      await endInterview()
-    } else {
-      await evaluateCurrentAnswer(null, 'voice')
-      setTranscript('')
+    const evaluated = await evaluateCurrentAnswer(null, 'voice')
+    const finalAnswers = evaluated ? [...answers, evaluated] : answers
+    const insertedFollowup = await maybeInsertFollowupQuestion(evaluated, finalAnswers)
+
+    setTranscript('')
+
+    if (insertedFollowup || currentQuestionIndex < activeQuestions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1)
+    } else {
+      await endInterview(true, finalAnswers)
     }
   }
 
@@ -496,10 +549,13 @@ const InterviewRoom = () => {
     setTypedAnswer('')
     setTranscript('')
 
-    if (currentQuestionIndex >= interviewQuestions.length - 1) {
-      await endInterview(true, [...answers, evaluated])
-    } else {
+    const finalAnswers = [...answers, evaluated]
+    const insertedFollowup = await maybeInsertFollowupQuestion(evaluated, finalAnswers)
+
+    if (insertedFollowup || currentQuestionIndex < activeQuestions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1)
+    } else {
+      await endInterview(true, finalAnswers)
     }
   }
 
@@ -632,12 +688,12 @@ const InterviewRoom = () => {
                 <div>
                   <div className="mb-2 flex items-center justify-between text-sm">
                     <span className="text-gray-400">Progress</span>
-                    <span className="text-white">{currentQuestionIndex + 1}/{interviewQuestions.length}</span>
+                    <span className="text-white">{currentQuestionIndex + 1}/{activeQuestions.length}</span>
                   </div>
                   <div className="h-2 rounded-full bg-white/10">
                     <motion.div
                       className="h-full rounded-full bg-gradient-to-r from-neon-blue to-neon-purple"
-                      animate={{ width: `${((currentQuestionIndex + 1) / interviewQuestions.length) * 100}%` }}
+                      animate={{ width: `${((currentQuestionIndex + 1) / activeQuestions.length) * 100}%` }}
                       transition={{ duration: 0.4 }}
                     />
                   </div>
@@ -674,7 +730,7 @@ const InterviewRoom = () => {
           >
             <div className="glass-card p-8 rounded-2xl h-full flex flex-col min-h-0">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold">Question {currentQuestionIndex + 1} of {interviewQuestions.length}</h3>
+                <h3 className="text-lg font-semibold">Question {currentQuestionIndex + 1} of {activeQuestions.length}</h3>
                 <span className="px-3 py-1 rounded-full bg-neon-blue/20 text-neon-cyan text-sm border border-neon-blue/30">
                   {getQuestionRound(currentQuestion)}
                 </span>

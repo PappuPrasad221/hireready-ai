@@ -240,7 +240,9 @@ class ResumeAnalyzer:
             
             local_analysis = self.analyze_resume_locally(raw_text, sections)
             gemini_analysis = await self.analyze_resume_with_gemini(raw_text, sections)
-            analysis = self.merge_resume_analysis(local_analysis, gemini_analysis)
+            analysis = self.clean_resume_analysis_data(
+                self.merge_resume_analysis(local_analysis, gemini_analysis)
+            )
             
             detected_sections = [section for section, content in sections.items() if content.strip()]
             target_sections = ["education", "skills", "experience", "projects", "certifications", "achievements"]
@@ -590,6 +592,232 @@ class ResumeAnalyzer:
         merged["extractionQuality"] = ai_quality if ai_quality not in [None, "", "very_low"] else local_quality
         return merged
 
+    def normalizeText(self, value: Any) -> str:
+        """Normalize extracted text for professional display and comparisons."""
+        if value is None:
+            return ""
+        text = str(value)
+        text = text.replace("â€¢", " ").replace("•", " ").replace("▸", " ").replace("▪", " ")
+        text = text.replace("Â·", " ").replace("|", " ")
+        text = re.sub(r"\s+", " ", text)
+        return text.strip(" -;,.")
+
+    def removeUrls(self, value: Any) -> str:
+        text = self.normalizeText(value)
+        text = re.sub(r"https?://\S+|www\.\S+", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"\b(?:github|gitlab|bitbucket)\s*:\s*\S+", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bgithub\.com/\S+", "", text, flags=re.IGNORECASE)
+        return self.normalizeText(text)
+
+    def removeDuplicateSentences(self, value: Any) -> str:
+        text = self.normalizeText(value)
+        if not text:
+            return ""
+        raw_sentences = re.split(r"(?<=[.!?])\s+|(?:\s+-\s+)", text)
+        seen = set()
+        sentences = []
+        for sentence in raw_sentences:
+            cleaned = self.normalizeText(sentence)
+            if not cleaned:
+                continue
+            key = re.sub(r"[^a-z0-9]+", " ", cleaned.lower()).strip()
+            if key and key not in seen:
+                seen.add(key)
+                sentences.append(cleaned)
+        return " ".join(sentences)
+
+    def cleanProjectDescription(self, value: Any, title: str = "") -> str:
+        text = self.removeUrls(value)
+        title = self.normalizeText(title)
+        if title:
+            text = re.sub(re.escape(title), "", text, count=1, flags=re.IGNORECASE)
+
+        cleanup_patterns = [
+            r"\btech\s*stack\s*[:\-]\s*[^.]+",
+            r"\btechnologies\s*(?:used)?\s*[:\-]\s*[^.]+",
+            r"\btools\s*[:\-]\s*[^.]+",
+            r"\bgithub\s*[:\-]?",
+            r"\blink\s*[:\-]?",
+            r"\brepository\s*[:\-]?",
+        ]
+        for pattern in cleanup_patterns:
+            text = re.sub(pattern, " ", text, flags=re.IGNORECASE)
+
+        text = re.sub(r"\s*(?:,|;)\s*(?:React|Python|JavaScript|Firebase|FastAPI|MongoDB|SQL|HTML|CSS|Node\.?js)\b", " ", text, flags=re.IGNORECASE)
+        text = self.removeDuplicateSentences(text)
+        words = text.split()
+        if len(words) > 45:
+            text = " ".join(words[:45]).rstrip(" ,;") + "."
+        return self.normalizeText(text)
+
+    def _clean_project_title(self, value: Any) -> str:
+        title = self.removeUrls(value)
+        title = re.sub(r"\b(?:project|github|tech stack|technologies|tools)\s*[:\-]\s*", "", title, flags=re.IGNORECASE)
+        title = re.sub(
+            r"^(?:JavaScript|HTML|CSS|React|Python|C\+\+|Java|Firebase|FastAPI|MongoDB|SQL|Node\.?js)\s+",
+            "",
+            title,
+            flags=re.IGNORECASE,
+        )
+        title = re.sub(r"\b(?:built|developed|implemented|created)\b.*$", "", title, flags=re.IGNORECASE)
+        return self.normalizeText(title)[:90]
+
+    def _project_quality_score(self, project: Dict[str, Any]) -> int:
+        title = self.normalizeText(project.get("title", ""))
+        description = self.normalizeText(project.get("description", ""))
+        score = 0
+        if 2 <= len(title.split()) <= 8:
+            score += 7
+        if len(title.split()) > 9:
+            score -= 6
+        if re.search(r"\b(?:built|developed|implemented|created|operations|demonstrated)\b", title, re.IGNORECASE):
+            score -= 5
+        if re.search(r"\b(?:JavaScript|HTML|CSS|React|Python|C\+\+|Firebase|FastAPI|MongoDB)\b", title, re.IGNORECASE):
+            score -= 2
+        if 8 <= len(description.split()) <= 55:
+            score += 5
+        if re.search(r"\b(?:github|http|tech stack|technologies)\b", title + " " + description, re.IGNORECASE):
+            score -= 8
+        return score
+
+    def _text_similarity(self, left: str, right: str) -> float:
+        stop = {
+            "the", "and", "with", "that", "this", "from", "for", "used", "using",
+            "html", "css", "javascript", "react", "python", "java", "project",
+        }
+        left_tokens = {
+            token for token in re.findall(r"[a-z0-9]+", left.lower())
+            if len(token) > 2 and token not in stop
+        }
+        right_tokens = {
+            token for token in re.findall(r"[a-z0-9]+", right.lower())
+            if len(token) > 2 and token not in stop
+        }
+        if not left_tokens or not right_tokens:
+            return 0
+        return len(left_tokens & right_tokens) / min(len(left_tokens), len(right_tokens))
+
+    def deduplicateEducation(self, education: List[Any]) -> List[Dict[str, str]]:
+        unique = {}
+        for item in education or []:
+            if isinstance(item, dict):
+                record = {
+                    "degree": self.normalizeText(item.get("degree", "")),
+                    "institution": self.normalizeText(item.get("institution", "")),
+                    "year": self.normalizeText(item.get("year", "")),
+                    "score": self.normalizeText(item.get("score", "")),
+                }
+            else:
+                text = self.normalizeText(item)
+                record = {"degree": text, "institution": "", "year": "", "score": ""}
+
+            if not any(record.values()):
+                continue
+
+            degree_key = re.sub(r"[^a-z0-9]+", "", record["degree"].lower())
+            year_key = re.sub(r"[^0-9]+", "", record["year"])
+            score_key = re.sub(r"[^0-9.]+", "", record["score"])
+            institution_key = re.sub(r"[^a-z0-9]+", "", record["institution"].lower())[:18]
+            key = f"{degree_key}|{year_key}|{score_key or institution_key}"
+            unique.setdefault(key, record)
+        return list(unique.values())
+
+    def deduplicateProjects(self, projects: List[Any]) -> List[Dict[str, Any]]:
+        unique: Dict[str, Dict[str, Any]] = {}
+        for item in projects or []:
+            if isinstance(item, dict):
+                raw_title = item.get("title") or item.get("name") or ""
+                raw_description = item.get("description") or item.get("summary") or item.get("impact") or ""
+                if not raw_description:
+                    raw_description = " ".join(
+                        str(item.get(field, ""))
+                        for field in ["title", "technologies", "role"]
+                        if item.get(field)
+                    )
+            else:
+                raw_title = ""
+                raw_description = str(item)
+
+            title = self._clean_project_title(raw_title)
+
+            description = self.cleanProjectDescription(raw_description, title)
+            if not title and description:
+                title = self.normalizeText(re.split(r"[:.]", description, maxsplit=1)[0])[:80]
+                title = self._clean_project_title(title)
+                description = self.cleanProjectDescription(description, title)
+            if not title and not description:
+                continue
+
+            record = {
+                "title": title or "Project",
+                "description": description,
+                "technologies": [],
+                "impact": "",
+                "role": "",
+            }
+            record_text = f"{record['title']} {record['description']}"
+            record_score = self._project_quality_score(record)
+            replaced = False
+
+            for key, existing in list(unique.items()):
+                existing_text = f"{existing['title']} {existing['description']}"
+                same_title = self._text_similarity(record["title"], existing["title"]) >= 0.75
+                same_content = self._text_similarity(record_text, existing_text) >= 0.45
+                if same_title or same_content:
+                    if record_score > self._project_quality_score(existing):
+                        unique[key] = record
+                    replaced = True
+                    break
+
+            if not replaced:
+                key = re.sub(r"[^a-z0-9]+", "", record_text.lower())[:220]
+                unique[key] = record
+
+        return sorted(unique.values(), key=self._project_quality_score, reverse=True)
+
+    def deduplicateSkills(self, skills: Any) -> Dict[str, List[str]]:
+        schema = self.validate_resume_json({})["skills"]
+        if isinstance(skills, list):
+            skills = {"tools": skills}
+        if not isinstance(skills, dict):
+            return schema
+
+        cleaned = {}
+        for category in schema:
+            values = skills.get(category, [])
+            if not isinstance(values, list):
+                values = []
+            seen = set()
+            cleaned[category] = []
+            for value in values:
+                skill = self.normalizeText(value)
+                key = skill.lower()
+                if skill and key not in seen:
+                    seen.add(key)
+                    cleaned[category].append(skill)
+        return cleaned
+
+    def _deduplicate_text_list(self, values: List[Any]) -> List[str]:
+        seen = set()
+        result = []
+        for value in values or []:
+            text = self.removeDuplicateSentences(self.removeUrls(value))
+            key = re.sub(r"[^a-z0-9]+", "", text.lower())
+            if text and key not in seen:
+                seen.add(key)
+                result.append(text)
+        return result
+
+    def clean_resume_analysis_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        cleaned = self.validate_resume_json(data or {})
+        cleaned["education"] = self.deduplicateEducation(cleaned.get("education", []))
+        cleaned["projects"] = self.deduplicateProjects(cleaned.get("projects", []))
+        cleaned["skills"] = self.deduplicateSkills(cleaned.get("skills", {}))
+        cleaned["certifications"] = self._deduplicate_text_list(cleaned.get("certifications", []))
+        cleaned["achievements"] = self._deduplicate_text_list(cleaned.get("achievements", []))
+        cleaned["interviewTopics"] = self._deduplicate_text_list(cleaned.get("interviewTopics", []))
+        return cleaned
+
     def _extract_candidate_name(self, text: str) -> str:
         first_chunk = re.split(r'\b(?:EDUCATION|SKILLS|EXPERIENCE|PROJECTS|CERTIFICATIONS)\b', text, flags=re.IGNORECASE)[0]
         candidates = re.findall(r'\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,2}\b', first_chunk[:500])
@@ -705,18 +933,16 @@ class ResumeAnalyzer:
         records = []
         for chunk in self._project_chunks(section):
             title = self._first_match(r'^([^:]{3,90}):', chunk.strip())
-            technologies = self._extract_flat_skills(chunk)
-            impact = self._first_match(r'((?:improved|reduced|increased|built|created|developed|implemented)[^.]{10,160})', chunk, flags=re.IGNORECASE)
-            description = re.sub(r'\s+', ' ', chunk.strip())
+            description = self.cleanProjectDescription(chunk, title)
             if title or description:
                 records.append({
-                    "title": title or description[:60],
-                    "description": description[:350],
-                    "technologies": technologies[:10],
-                    "impact": impact,
+                    "title": self.removeUrls(title) or description[:60],
+                    "description": description,
+                    "technologies": [],
+                    "impact": "",
                     "role": ""
                 })
-        return records[:8]
+        return self.deduplicateProjects(records)[:8]
 
     def _project_chunks(self, section: str) -> List[str]:
         lines = [line.strip() for line in section.splitlines() if line.strip()]

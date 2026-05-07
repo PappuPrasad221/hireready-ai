@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
 import { Upload, FileText, CheckCircle, AlertCircle, Sparkles, ArrowRight, X, Tag, Briefcase, GraduationCap } from 'lucide-react'
@@ -39,19 +39,185 @@ const ResumeUpload = () => {
     }
   }
 
+  const normalizeText = (value) => {
+    if (value === null || value === undefined) return ''
+    return String(value)
+      .replace(/https?:\/\/\S+|www\.\S+/gi, '')
+      .replace(/\bgithub\s*:\s*\S+/gi, '')
+      .replace(/\bgithub\.com\/\S+/gi, '')
+      .replace(/[•▸▪|]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/^[\s\-;,.]+|[\s\-;,.]+$/g, '')
+  }
+
+  const removeDuplicateSentences = (value) => {
+    const text = normalizeText(value)
+    const seen = new Set()
+    return text
+      .split(/(?<=[.!?])\s+|\s+-\s+/)
+      .map(normalizeText)
+      .filter((sentence) => {
+        const key = sentence.toLowerCase().replace(/[^a-z0-9]+/g, '')
+        if (!key || seen.has(key)) return false
+        seen.add(key)
+        return true
+      })
+      .join(' ')
+  }
+
+  const dedupeTextList = (values = []) => {
+    const seen = new Set()
+    return values
+      .map((value) => removeDuplicateSentences(value))
+      .filter((value) => {
+        const key = value.toLowerCase().replace(/[^a-z0-9]+/g, '')
+        if (!key || seen.has(key)) return false
+        seen.add(key)
+        return true
+      })
+  }
+
   const normalizeSkills = (skills) => {
-    if (Array.isArray(skills)) return skills
+    if (Array.isArray(skills)) return dedupeTextList(skills)
     if (skills && typeof skills === 'object') {
-      return Object.values(skills).flat().filter(Boolean)
+      return dedupeTextList(Object.values(skills).flat().filter(Boolean))
     }
     return []
   }
 
   const formatItem = (item, fields = []) => {
-    if (typeof item === 'string') return item
+    if (typeof item === 'string') return normalizeText(item)
     if (!item || typeof item !== 'object') return ''
-    return fields.map((field) => item[field]).filter(Boolean).join(' - ')
+    return fields.map((field) => normalizeText(item[field])).filter(Boolean).join(' - ')
   }
+
+  const cleanProjectDescription = (value, title = '') => {
+    let text = normalizeText(value)
+    if (title) {
+      text = text.replace(new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), '')
+    }
+    text = text
+      .replace(/\btech\s*stack\s*[:\-]\s*[^.]+/gi, ' ')
+      .replace(/\btechnologies\s*(used)?\s*[:\-]\s*[^.]+/gi, ' ')
+      .replace(/\btools\s*[:\-]\s*[^.]+/gi, ' ')
+      .replace(/\bgithub\s*[:\-]?/gi, ' ')
+      .replace(/\blink\s*[:\-]?/gi, ' ')
+    text = removeDuplicateSentences(text)
+    const words = text.split(/\s+/).filter(Boolean)
+    return words.length > 45 ? `${words.slice(0, 45).join(' ')}.` : text
+  }
+
+  const cleanProjectTitle = (value) => normalizeText(value)
+    .replace(/\b(project|github|tech stack|technologies|tools)\s*[:\-]\s*/gi, '')
+    .replace(/^(JavaScript|HTML|CSS|React|Python|C\+\+|Java|Firebase|FastAPI|MongoDB|SQL|Node\.?js)\s+/i, '')
+    .replace(/\b(built|developed|implemented|created)\b.*$/i, '')
+    .slice(0, 90)
+    .trim()
+
+  const textSimilarity = (left, right) => {
+    const stop = new Set(['the', 'and', 'with', 'that', 'this', 'from', 'for', 'used', 'using', 'html', 'css', 'javascript', 'react', 'python', 'java', 'project'])
+    const leftTokens = new Set(normalizeText(left).toLowerCase().match(/[a-z0-9]+/g)?.filter((token) => token.length > 2 && !stop.has(token)) || [])
+    const rightTokens = new Set(normalizeText(right).toLowerCase().match(/[a-z0-9]+/g)?.filter((token) => token.length > 2 && !stop.has(token)) || [])
+    if (!leftTokens.size || !rightTokens.size) return 0
+    let overlap = 0
+    leftTokens.forEach((token) => {
+      if (rightTokens.has(token)) overlap += 1
+    })
+    return overlap / Math.min(leftTokens.size, rightTokens.size)
+  }
+
+  const projectQualityScore = (project) => {
+    const title = normalizeText(project.title)
+    const description = normalizeText(project.description)
+    let score = 0
+    if (title.split(/\s+/).length >= 2 && title.split(/\s+/).length <= 8) score += 7
+    if (title.split(/\s+/).length > 9) score -= 6
+    if (/\b(built|developed|implemented|created|operations|demonstrated)\b/i.test(title)) score -= 5
+    if (/\b(JavaScript|HTML|CSS|React|Python|C\+\+|Firebase|FastAPI|MongoDB)\b/i.test(title)) score -= 2
+    if (description.split(/\s+/).length >= 8 && description.split(/\s+/).length <= 55) score += 5
+    if (/\b(github|http|tech stack|technologies)\b/i.test(`${title} ${description}`)) score -= 8
+    return score
+  }
+
+  const dedupeEducation = (education = []) => {
+    const seen = new Set()
+    return education
+      .map((edu) => {
+        if (typeof edu === 'string') {
+          return { degree: normalizeText(edu), institution: '', year: '', score: '' }
+        }
+        return {
+          degree: normalizeText(edu?.degree),
+          institution: normalizeText(edu?.institution),
+          year: normalizeText(edu?.year),
+          score: normalizeText(edu?.score)
+        }
+      })
+      .filter((edu) => {
+        const degreeKey = edu.degree.toLowerCase().replace(/[^a-z0-9]+/g, '')
+        const yearKey = edu.year.replace(/[^0-9]+/g, '')
+        const scoreKey = edu.score.replace(/[^0-9.]+/g, '')
+        const institutionKey = edu.institution.toLowerCase().replace(/[^a-z0-9]+/g, '').slice(0, 18)
+        const key = `${degreeKey}|${yearKey}|${scoreKey || institutionKey}`
+        if (!key.replace(/\|/g, '') || seen.has(key)) return false
+        seen.add(key)
+        return true
+      })
+  }
+
+  const dedupeProjects = (projects = []) => {
+    const unique = new Map()
+    projects.forEach((project) => {
+      const rawTitle = typeof project === 'string' ? '' : project?.title || project?.name || ''
+      const rawDescription = typeof project === 'string'
+        ? project
+        : project?.description || project?.summary || project?.impact || ''
+      let title = cleanProjectTitle(rawTitle)
+      let description = cleanProjectDescription(rawDescription, title)
+      if (!title && description) {
+        title = cleanProjectTitle(description.split(/[:.]/)[0])
+        description = cleanProjectDescription(description, title)
+      }
+      if (!title && !description) return
+
+      const record = { title: title || 'Project', description }
+      const recordText = `${record.title} ${record.description}`
+      const recordScore = projectQualityScore(record)
+      let replaced = false
+
+      Array.from(unique.entries()).some(([key, existing]) => {
+        const existingText = `${existing.title} ${existing.description}`
+        const sameTitle = textSimilarity(record.title, existing.title) >= 0.75
+        const sameContent = textSimilarity(recordText, existingText) >= 0.45
+        if (sameTitle || sameContent) {
+          if (recordScore > projectQualityScore(existing)) {
+            unique.set(key, record)
+          }
+          replaced = true
+          return true
+        }
+        return false
+      })
+
+      if (!replaced) {
+        const key = recordText.toLowerCase().replace(/[^a-z0-9]+/g, '').slice(0, 220)
+        unique.set(key, record)
+      }
+    })
+    return Array.from(unique.values()).sort((left, right) => projectQualityScore(right) - projectQualityScore(left))
+  }
+
+  const cleanedExtractedData = useMemo(() => {
+    if (!extractedData) return null
+    return {
+      ...extractedData,
+      education: dedupeEducation(extractedData.education || []),
+      projects: dedupeProjects(extractedData.projects || []),
+      certifications: dedupeTextList(extractedData.certifications || []),
+      achievements: dedupeTextList(extractedData.achievements || [])
+    }
+  }, [extractedData])
 
   const handleFileUpload = async (uploadedFile) => {
     if (uploadedFile.type !== 'application/pdf') {
@@ -280,7 +446,7 @@ const ResumeUpload = () => {
                     <h3 className="text-xl font-semibold">Skills Extracted</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {normalizeSkills(extractedData.skills).map((skill, index) => (
+                    {normalizeSkills(cleanedExtractedData.skills).map((skill, index) => (
                       <span
                         key={index}
                         className="px-3 py-1 rounded-full bg-neon-blue/20 text-neon-cyan text-sm border border-neon-blue/30"
@@ -303,7 +469,7 @@ const ResumeUpload = () => {
                     <h3 className="text-xl font-semibold">Experience</h3>
                   </div>
                   <ul className="space-y-2">
-                    {(extractedData.experience || []).map((exp, index) => (
+                    {(cleanedExtractedData.experience || []).map((exp, index) => (
                       <li key={index} className="text-gray-300 text-sm">
                         • {formatItem(exp, ['role', 'company', 'duration'])}
                       </li>
@@ -323,7 +489,7 @@ const ResumeUpload = () => {
                     <h3 className="text-xl font-semibold">Education</h3>
                   </div>
                   <ul className="space-y-2">
-                    {(extractedData.education || []).map((edu, index) => (
+                    {(cleanedExtractedData.education || []).map((edu, index) => (
                       <li key={index} className="text-gray-300 text-sm">
                         • {formatItem(edu, ['degree', 'institution', 'year', 'score'])}
                       </li>
@@ -343,9 +509,12 @@ const ResumeUpload = () => {
                     <h3 className="text-xl font-semibold">Projects</h3>
                   </div>
                   <ul className="space-y-2">
-                    {(extractedData.projects || []).map((project, index) => (
-                      <li key={index} className="text-gray-300 text-sm">
-                        • {formatItem(project, ['title', 'description', 'impact'])}
+                    {(cleanedExtractedData.projects || []).map((project, index) => (
+                      <li key={`${project.title}-${index}`} className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                        <h4 className="font-semibold text-white">{project.title}</h4>
+                        {project.description && (
+                          <p className="mt-2 text-sm leading-6 text-gray-300">{project.description}</p>
+                        )}
                       </li>
                     ))}
                   </ul>

@@ -26,6 +26,8 @@ class AnswerEvaluation(BaseModel):
     behavior_data: Dict[str, Any]
     resume_context: Dict[str, Any] = {}
     job_insights: Dict[str, Any] = {}
+    evaluation: Dict[str, Any] = {}
+    previous_answers: List[Dict[str, Any]] = []
 
 class InterviewSession(BaseModel):
     session_id: str
@@ -42,15 +44,17 @@ async def generate_interview_questions(request: InterviewRequest):
     """Generate personalized interview questions"""
     try:
         generator = QuestionGenerator()
-        questions = await generator.generate_questions(
+        interview_plan = await generator.generate_interview_plan(
             resume_data=request.resume_data,
             job_insights=request.job_insights,
             role=request.role,
             company=request.company
         )
+        questions = [question for round_plan in interview_plan for question in round_plan["questions"]]
         
         return JSONResponse(content={
             "success": True,
+            "interviewPlan": interview_plan,
             "questions": questions,
             "session_id": f"session_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
             "generated_at": datetime.now().isoformat()
@@ -103,16 +107,23 @@ async def evaluate_answer_required(evaluation: AnswerEvaluation):
 async def generate_followup_question(evaluation: AnswerEvaluation):
     """Generate follow-up question based on weak answer"""
     try:
-        gemini_service = GeminiService()
-        followup = await gemini_service.generate_followup_question(
-            original_question=evaluation.question,
+        generator = QuestionGenerator()
+        evaluation_context = evaluation.evaluation or {
+            "scores": {"overall": evaluation.behavior_data.get("score", 0)},
+            "feedback": {
+                "missing_points": evaluation.behavior_data.get("missing_points", []),
+            },
+        }
+        followup = await generator.generate_followup_question(
+            question=evaluation.question,
             answer=evaluation.answer,
-            evaluation_score=evaluation.behavior_data.get("score", 0)
+            evaluation=evaluation_context,
+            previous_answers=evaluation.previous_answers,
         )
         
         return JSONResponse(content={
             "success": True,
-            "followup_question": followup,
+            **followup,
             "generated_at": datetime.now().isoformat()
         })
     except Exception as e:
@@ -129,12 +140,13 @@ async def start_interview_session(request: InterviewRequest):
     try:
         # Generate questions
         generator = QuestionGenerator()
-        questions = await generator.generate_questions(
+        interview_plan = await generator.generate_interview_plan(
             resume_data=request.resume_data,
             job_insights=request.job_insights,
             role=request.role,
             company=request.company
         )
+        questions = [question for round_plan in interview_plan for question in round_plan["questions"]]
         
         # Create session
         session_data = {
@@ -143,6 +155,7 @@ async def start_interview_session(request: InterviewRequest):
             "company": request.company,
             "role": request.role,
             "location": request.location,
+            "interviewPlan": interview_plan,
             "questions": questions,
             "answers": [],
             "behavior_data": [],
