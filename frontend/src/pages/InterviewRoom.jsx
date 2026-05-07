@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Camera, Mic, MicOff, Video, VideoOff, Brain, Volume2, Eye, Activity, Clock, MessageSquare, StopCircle, PlayCircle } from 'lucide-react'
+import { Camera, Mic, MicOff, Video, VideoOff, Brain, Volume2, Eye, Activity, Clock, MessageSquare, StopCircle, PlayCircle, Send, Keyboard } from 'lucide-react'
 import { FaceMesh } from '@mediapipe/face_mesh'
 import apiService from '../api/api'
 
@@ -26,6 +26,10 @@ const InterviewRoom = () => {
   const [transcript, setTranscript] = useState('')
   const [audioLevel, setAudioLevel] = useState(0)
   const [answers, setAnswers] = useState([])
+  const [chatMessages, setChatMessages] = useState([])
+  const [answerMode, setAnswerMode] = useState('voice')
+  const [typedAnswer, setTypedAnswer] = useState('')
+  const [isEvaluating, setIsEvaluating] = useState(false)
   
   const videoRef = useRef(null)
   const mediaRecorderRef = useRef(null)
@@ -33,6 +37,8 @@ const InterviewRoom = () => {
   const timerIntervalRef = useRef(null)
   const faceMeshRef = useRef(null)
   const behaviorIntervalRef = useRef(null)
+  const chatEndRef = useRef(null)
+  const answerModeRef = useRef(answerMode)
 
   const interviewQuestions = interviewState.questions?.length ? interviewState.questions : [
     "Tell me about yourself and your experience relevant to this role.",
@@ -92,6 +98,20 @@ const InterviewRoom = () => {
     return () => clearInterval(audioInterval)
   }, [isListening])
 
+  useEffect(() => {
+    answerModeRef.current = answerMode
+
+    if (answerMode === 'text') {
+      stopSpeechRecognition()
+      return
+    }
+
+    if (isInterviewActive && !isAISpeaking && isMicOn) {
+      setIsListening(true)
+      startSpeechRecognition()
+    }
+  }, [answerMode, isInterviewActive, isAISpeaking, isMicOn])
+
   const startTimer = () => {
     stopTimer()
     timerIntervalRef.current = setInterval(() => {
@@ -111,11 +131,36 @@ const InterviewRoom = () => {
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
   }
 
+  const appendChatMessage = useCallback((message) => {
+    setChatMessages(prev => {
+      const id = message.id || `${message.role}-${Date.now()}`
+      if (prev.some(item => item.id === id)) return prev
+      return [
+        ...prev,
+        {
+          ...message,
+          id,
+          timestamp: message.timestamp || formatTime(timer)
+        }
+      ]
+    })
+  }, [timer])
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+  }, [chatMessages, transcript])
+
   const askQuestion = (index) => {
     if (index < interviewQuestions.length) {
       const nextQuestionData = interviewQuestions[index]
       setCurrentQuestion(nextQuestionData)
       setIsAISpeaking(true)
+      appendChatMessage({
+        id: `ai-question-${index}`,
+        role: 'ai',
+        label: getQuestionRound(nextQuestionData),
+        text: getQuestionText(nextQuestionData)
+      })
       speakQuestion(getQuestionText(nextQuestionData))
     } else {
       endInterview()
@@ -129,17 +174,23 @@ const InterviewRoom = () => {
       utterance.pitch = 1
       utterance.onend = () => {
         setIsAISpeaking(false)
-        setIsListening(true)
-        startSpeechRecognition()
+        if (answerModeRef.current === 'voice' && isMicOn) {
+          setIsListening(true)
+          startSpeechRecognition()
+        }
       }
       window.speechSynthesis.speak(utterance)
     } else {
       setIsAISpeaking(false)
-      setIsListening(true)
+      if (answerModeRef.current === 'voice' && isMicOn) {
+        setIsListening(true)
+      }
     }
   }
 
   const startSpeechRecognition = () => {
+    if (recognitionRef.current) return
+
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
       recognitionRef.current = new SpeechRecognition()
@@ -297,12 +348,18 @@ const InterviewRoom = () => {
     setIsInterviewActive(true)
     setCurrentQuestionIndex(0)
     setTimer(0)
+    setChatMessages([])
+    setTranscript('')
+    setTypedAnswer('')
     startCamera()
   }
 
-  const evaluateCurrentAnswer = async () => {
-    const answerText = transcript.trim()
+  const evaluateCurrentAnswer = async (answerOverride = null, modeOverride = answerMode) => {
+    const answerText = (answerOverride ?? transcript).trim()
     if (!answerText || !currentQuestion) return null
+    if (isEvaluating) return null
+
+    setIsEvaluating(true)
 
     const behaviorData = {
       eye_contact: eyeContact,
@@ -311,9 +368,10 @@ const InterviewRoom = () => {
       distraction_count: distractionCount,
       behavior_state: behaviorState,
       confidence_indicators: {
-        clear_voice: audioLevel > 10 ? 0.8 : 0.5,
-        steady_pace: 0.7,
-        minimal_fillers: 0.6
+        clear_voice: modeOverride === 'voice' ? (audioLevel > 10 ? 0.8 : 0.5) : null,
+        steady_pace: modeOverride === 'voice' ? 0.7 : null,
+        minimal_fillers: modeOverride === 'voice' ? 0.6 : null,
+        input_mode: modeOverride
       }
     }
 
@@ -332,7 +390,27 @@ const InterviewRoom = () => {
         answer: answerText,
         scores: response.evaluation?.scores || {},
         feedback: response.evaluation?.feedback || {},
-        behavior_data: behaviorData
+        behavior_data: behaviorData,
+        input_mode: modeOverride
+      }
+
+      appendChatMessage({
+        role: 'user',
+        label: modeOverride === 'voice' ? 'Your voice answer' : 'Your typed answer',
+        text: answerText
+      })
+
+      const feedbackSummary =
+        response.evaluation?.feedback?.detailed_feedback ||
+        response.evaluation?.feedback?.summary ||
+        response.evaluation?.feedback?.overall_feedback
+
+      if (feedbackSummary) {
+        appendChatMessage({
+          role: 'ai',
+          label: `Evaluation ${response.evaluation?.scores?.overall ?? ''}`.trim(),
+          text: feedbackSummary
+        })
       }
 
       setAnswers(prev => [...prev, answerRecord])
@@ -344,22 +422,37 @@ const InterviewRoom = () => {
         answer: answerText,
         scores: { overall: 0 },
         feedback: {},
-        behavior_data: behaviorData
+        behavior_data: behaviorData,
+        input_mode: modeOverride
       }
+      appendChatMessage({
+        role: 'user',
+        label: modeOverride === 'voice' ? 'Your voice answer' : 'Your typed answer',
+        text: answerText
+      })
+      appendChatMessage({
+        role: 'ai',
+        label: 'Evaluation unavailable',
+        text: 'I could not evaluate this answer because the evaluation service did not respond.'
+      })
       setAnswers(prev => [...prev, fallbackRecord])
       return fallbackRecord
+    } finally {
+      setIsEvaluating(false)
     }
   }
 
-  const endInterview = async () => {
+  const endInterview = async (skipCurrentEvaluation = false, providedAnswers = null) => {
     setIsInterviewActive(false)
     setIsAISpeaking(false)
     setIsListening(false)
     stopSpeechRecognition()
     stopCamera()
 
-    const latestAnswer = await evaluateCurrentAnswer()
-    const finalAnswers = latestAnswer ? [...answers, latestAnswer] : answers
+    const latestAnswer = skipCurrentEvaluation
+      ? null
+      : await evaluateCurrentAnswer(answerMode === 'text' ? typedAnswer : null, answerMode)
+    const finalAnswers = providedAnswers || (latestAnswer ? [...answers, latestAnswer] : answers)
 
     try {
       const response = await apiService.endInterviewSession({
@@ -370,6 +463,7 @@ const InterviewRoom = () => {
         questions: interviewQuestions,
         answers: finalAnswers,
         behavior_data: finalAnswers.map(item => item.behavior_data || {}),
+        answer_modes: finalAnswers.map(item => item.input_mode || 'voice'),
         scores: {}
       })
 
@@ -386,13 +480,38 @@ const InterviewRoom = () => {
     if (currentQuestionIndex >= interviewQuestions.length - 1) {
       await endInterview()
     } else {
-      await evaluateCurrentAnswer()
+      await evaluateCurrentAnswer(null, 'voice')
       setTranscript('')
       setCurrentQuestionIndex(prev => prev + 1)
     }
   }
 
+  const submitTypedAnswer = async () => {
+    const answerText = typedAnswer.trim()
+    if (!answerText || isAISpeaking || isEvaluating || !isInterviewActive) return
+
+    const evaluated = await evaluateCurrentAnswer(answerText, 'text')
+    if (!evaluated) return
+
+    setTypedAnswer('')
+    setTranscript('')
+
+    if (currentQuestionIndex >= interviewQuestions.length - 1) {
+      await endInterview(true, [...answers, evaluated])
+    } else {
+      setCurrentQuestionIndex(prev => prev + 1)
+    }
+  }
+
+  const handleTextKeyDown = (event) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault()
+      submitTypedAnswer()
+    }
+  }
+
   const toggleMic = () => {
+    if (answerMode === 'text') return
     if (isMicOn) {
       stopSpeechRecognition()
     } else if (isInterviewActive && !isAISpeaking) {
@@ -501,6 +620,30 @@ const InterviewRoom = () => {
                 </div>
               </div>
 
+              <div className="mt-5 space-y-3 rounded-2xl border border-white/10 bg-black/20 p-4">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-gray-400">Round</span>
+                  <span className="text-neon-cyan">{getQuestionRound(currentQuestion)}</span>
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-gray-400">Category</span>
+                  <span className="text-violet-200">{typeof currentQuestion === 'string' ? 'General' : currentQuestion.type || 'General'}</span>
+                </div>
+                <div>
+                  <div className="mb-2 flex items-center justify-between text-sm">
+                    <span className="text-gray-400">Progress</span>
+                    <span className="text-white">{currentQuestionIndex + 1}/{interviewQuestions.length}</span>
+                  </div>
+                  <div className="h-2 rounded-full bg-white/10">
+                    <motion.div
+                      className="h-full rounded-full bg-gradient-to-r from-neon-blue to-neon-purple"
+                      animate={{ width: `${((currentQuestionIndex + 1) / interviewQuestions.length) * 100}%` }}
+                      transition={{ duration: 0.4 }}
+                    />
+                  </div>
+                </div>
+              </div>
+
               {/* Sound Wave */}
               {isAISpeaking && (
                 <div className="mt-4 flex justify-center space-x-1">
@@ -529,7 +672,7 @@ const InterviewRoom = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-6"
           >
-            <div className="glass-card p-8 rounded-2xl h-full flex flex-col">
+            <div className="glass-card p-8 rounded-2xl h-full flex flex-col min-h-0">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-lg font-semibold">Question {currentQuestionIndex + 1} of {interviewQuestions.length}</h3>
                 <span className="px-3 py-1 rounded-full bg-neon-blue/20 text-neon-cyan text-sm border border-neon-blue/30">
@@ -538,7 +681,7 @@ const InterviewRoom = () => {
               </div>
               
               {/* Question */}
-              <div className="flex-1 flex items-center justify-center">
+              <div className="flex-1 min-h-[170px] flex items-center justify-center">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={getQuestionText(currentQuestion)}
@@ -551,6 +694,74 @@ const InterviewRoom = () => {
                     {getQuestionText(currentQuestion) || "Click 'Start Interview' to begin"}
                   </motion.div>
                 </AnimatePresence>
+              </div>
+
+              {/* Voice Chat Transcript */}
+              <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 overflow-hidden">
+                <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+                  <div className="flex items-center space-x-2">
+                    <MessageSquare className="w-4 h-4 text-neon-cyan" />
+                    <span className="text-sm font-semibold text-white">Interview Chat</span>
+                  </div>
+                  <span className="rounded-full border border-neon-blue/30 bg-neon-blue/10 px-3 py-1 text-xs text-neon-cyan">
+                    Voice only
+                  </span>
+                </div>
+
+                <div className="max-h-56 min-h-[150px] overflow-y-auto px-4 py-4 space-y-3">
+                  {chatMessages.length === 0 && !transcript ? (
+                    <div className="h-full min-h-[112px] flex items-center justify-center text-center">
+                      <p className="max-w-md text-sm leading-6 text-gray-500">
+                        AI questions, your spoken responses, and evaluation notes will appear here during the interview.
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      {chatMessages.map((message) => {
+                        const isUser = message.role === 'user'
+                        return (
+                          <motion.div
+                            key={message.id}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}
+                          >
+                            <div className={`max-w-[86%] rounded-2xl px-4 py-3 ${
+                              isUser
+                                ? 'bg-gradient-to-br from-neon-blue/25 to-neon-purple/25 border border-neon-blue/30'
+                                : 'bg-white/[0.06] border border-white/10'
+                            }`}>
+                              <div className="mb-1 flex items-center justify-between gap-3">
+                                <span className={`text-xs font-semibold ${isUser ? 'text-neon-cyan' : 'text-violet-200'}`}>
+                                  {message.label || (isUser ? 'Candidate' : 'AI Interviewer')}
+                                </span>
+                                <span className="text-[11px] text-gray-500">{message.timestamp}</span>
+                              </div>
+                              <p className="text-sm leading-6 text-gray-100">{message.text}</p>
+                            </div>
+                          </motion.div>
+                        )
+                      })}
+
+                      {transcript && isListening && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="flex justify-end"
+                        >
+                          <div className="max-w-[86%] rounded-2xl border border-neon-cyan/30 bg-neon-cyan/10 px-4 py-3">
+                            <div className="mb-1 flex items-center justify-between gap-3">
+                              <span className="text-xs font-semibold text-neon-cyan">Live transcript</span>
+                              <span className="text-[11px] text-gray-500">{formatTime(timer)}</span>
+                            </div>
+                            <p className="text-sm leading-6 text-gray-100">{transcript}</p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </>
+                  )}
+                  <div ref={chatEndRef} />
+                </div>
               </div>
 
               {/* Audio Waveform */}
@@ -599,6 +810,75 @@ const InterviewRoom = () => {
                 </div>
               )}
 
+              {/* Answer Mode Toggle */}
+              <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.035] p-4">
+                <div className="mb-3 flex items-center justify-between gap-4">
+                  <span className="text-sm font-semibold text-white">Answer Mode</span>
+                  <span className="text-xs text-gray-500">Switch anytime before answering</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    onClick={() => setAnswerMode('voice')}
+                    className={`flex items-center justify-center rounded-xl border px-4 py-3 text-sm font-semibold transition-all ${
+                      answerMode === 'voice'
+                        ? 'border-neon-blue/50 bg-neon-blue/20 text-neon-cyan shadow-[0_0_24px_rgba(0,212,255,.18)]'
+                        : 'border-white/10 bg-black/20 text-gray-400 hover:text-white'
+                    }`}
+                  >
+                    <Mic className="mr-2 h-4 w-4" />
+                    Voice
+                  </button>
+                  <button
+                    onClick={() => setAnswerMode('text')}
+                    className={`flex items-center justify-center rounded-xl border px-4 py-3 text-sm font-semibold transition-all ${
+                      answerMode === 'text'
+                        ? 'border-neon-purple/50 bg-neon-purple/20 text-violet-200 shadow-[0_0_24px_rgba(124,58,237,.22)]'
+                        : 'border-white/10 bg-black/20 text-gray-400 hover:text-white'
+                    }`}
+                  >
+                    <Keyboard className="mr-2 h-4 w-4" />
+                    Text
+                  </button>
+                </div>
+              </div>
+
+              {answerMode === 'text' && isInterviewActive && (
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 rounded-2xl border border-neon-purple/25 bg-black/25 p-4 shadow-[0_0_28px_rgba(124,58,237,.12)]"
+                >
+                  <div className="mb-3 flex items-center justify-between">
+                    <div className="flex items-center space-x-2 text-sm font-semibold text-violet-200">
+                      <MessageSquare className="h-4 w-4" />
+                      <span>Text Answer</span>
+                    </div>
+                    {typedAnswer && (
+                      <span className="text-xs text-neon-cyan">Typing...</span>
+                    )}
+                  </div>
+                  <div className="flex gap-3">
+                    <textarea
+                      value={typedAnswer}
+                      onChange={(event) => setTypedAnswer(event.target.value)}
+                      onKeyDown={handleTextKeyDown}
+                      disabled={isAISpeaking || isEvaluating}
+                      rows={3}
+                      className="min-h-[86px] flex-1 resize-none rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm leading-6 text-white placeholder-gray-500 outline-none transition focus:border-neon-purple/60 focus:shadow-[0_0_24px_rgba(124,58,237,.18)] disabled:opacity-60"
+                      placeholder="Type your interview answer here..."
+                    />
+                    <button
+                      onClick={submitTypedAnswer}
+                      disabled={!typedAnswer.trim() || isAISpeaking || isEvaluating}
+                      className="self-stretch rounded-xl border border-neon-blue/40 bg-gradient-to-br from-neon-blue to-neon-purple px-4 text-white shadow-[0_0_24px_rgba(0,212,255,.22)] transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50"
+                      aria-label="Send typed answer"
+                    >
+                      <Send className="h-5 w-5" />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+
               {/* Control Buttons */}
               <div className="mt-8 flex justify-center space-x-4">
                 {!isInterviewActive ? (
@@ -611,16 +891,19 @@ const InterviewRoom = () => {
                   </button>
                 ) : (
                   <>
-                    <button
-                      onClick={nextQuestion}
-                      disabled={isAISpeaking}
-                      className="btn-secondary flex items-center disabled:opacity-50"
-                    >
-                      Next Question
-                      <MessageSquare className="w-5 h-5 ml-2" />
-                    </button>
+                    {answerMode === 'voice' && (
+                      <button
+                        onClick={nextQuestion}
+                        disabled={isAISpeaking || isEvaluating}
+                        className="btn-secondary flex items-center disabled:opacity-50"
+                      >
+                        {isEvaluating ? 'Evaluating...' : 'Next Question'}
+                        <MessageSquare className="w-5 h-5 ml-2" />
+                      </button>
+                    )}
                     <button
                       onClick={endInterview}
+                      disabled={isEvaluating}
                       className="px-6 py-3 rounded-xl bg-red-500/20 text-red-400 border border-red-500/30 hover:bg-red-500/30 transition-colors flex items-center"
                     >
                       <StopCircle className="w-5 h-5 mr-2" />
@@ -725,8 +1008,11 @@ const InterviewRoom = () => {
               <div className="mt-auto pt-4 flex justify-center space-x-3">
                 <button
                   onClick={toggleMic}
+                  disabled={answerMode === 'text'}
                   className={`p-3 rounded-xl transition-all ${
-                    isMicOn 
+                    answerMode === 'text'
+                      ? 'bg-gray-500/10 text-gray-500 border border-white/10 cursor-not-allowed'
+                      : isMicOn 
                       ? 'bg-neon-blue/20 text-neon-blue border border-neon-blue/30' 
                       : 'bg-red-500/20 text-red-400 border border-red-500/30'
                   }`}
