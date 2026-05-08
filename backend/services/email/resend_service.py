@@ -12,12 +12,19 @@ class ResendEmailService:
         self.from_email = os.getenv("RESEND_FROM_EMAIL") or "onboarding@resend.dev"
         self.from_name = os.getenv("RESEND_FROM_NAME") or os.getenv("FROM_NAME", "HireReady AI")
 
-    def send_report(self, to_email: str, candidate_name: str, subject: str, body: str, pdf_path: str, filename: str) -> Dict[str, str]:
+    def send_report(self, to_email: str, candidate_name: str, subject: str, body: str, pdf_path: str, filename: str, extra_attachments: list | None = None) -> Dict[str, str]:
         if not self.api_key:
             raise RuntimeError("RESEND_API_KEY is not configured")
 
         with open(pdf_path, "rb") as handle:
             attachment = base64.b64encode(handle.read()).decode("utf-8")
+
+        attachments = [{"filename": filename, "content": attachment}]
+        for extra in extra_attachments or []:
+            attachments.append({
+                "filename": extra["filename"],
+                "content": base64.b64encode(extra["content"]).decode("utf-8"),
+            })
 
         response = requests.post(
             "https://api.resend.com/emails",
@@ -30,7 +37,7 @@ class ResendEmailService:
                 "to": [to_email],
                 "subject": subject,
                 "text": body,
-                "attachments": [{"filename": filename, "content": attachment}],
+                "attachments": attachments,
             },
             timeout=20,
         )

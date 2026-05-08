@@ -3,7 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Camera, Mic, MicOff, Video, VideoOff, Brain, Volume2, Eye, Activity, Clock, MessageSquare, StopCircle, PlayCircle, Send, Keyboard } from 'lucide-react'
 import { FaceMesh } from '@mediapipe/face_mesh'
+import { getDownloadURL, ref as storageRef, uploadBytes } from 'firebase/storage'
 import apiService from '../api/api'
+import { storage } from '../firebase/config'
 
 const InterviewRoom = () => {
   const location = useLocation()
@@ -30,15 +32,28 @@ const InterviewRoom = () => {
   const [answerMode, setAnswerMode] = useState('voice')
   const [typedAnswer, setTypedAnswer] = useState('')
   const [isEvaluating, setIsEvaluating] = useState(false)
+  const [isEndingInterview, setIsEndingInterview] = useState(false)
+  const [recordingStatus, setRecordingStatus] = useState('not_started')
+  const [recordingMetadata, setRecordingMetadata] = useState(null)
   
   const videoRef = useRef(null)
   const mediaRecorderRef = useRef(null)
+  const recordingChunksRef = useRef([])
+  const recordingStreamRef = useRef(null)
   const recognitionRef = useRef(null)
   const timerIntervalRef = useRef(null)
   const faceMeshRef = useRef(null)
   const behaviorIntervalRef = useRef(null)
   const chatEndRef = useRef(null)
   const answerModeRef = useRef(answerMode)
+
+  const getCurrentCandidate = () => {
+    try {
+      return JSON.parse(localStorage.getItem('candidateProfile') || sessionStorage.getItem('candidateProfile') || '{}')
+    } catch {
+      return {}
+    }
+  }
 
   const initialInterviewQuestions = interviewState.questions?.length ? interviewState.questions : [
     "Tell me about yourself and your experience relevant to this role.",
@@ -261,6 +276,243 @@ const InterviewRoom = () => {
     setBehaviorState('Camera Off')
   }
 
+  const startInterviewRecording = async () => {
+    if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) {
+      setRecordingStatus('failed')
+      setRecordingMetadata({ recordingStatus: 'failed', recordingError: 'MediaRecorder is not supported in this browser.' })
+      return null
+    }
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { width: 640, height: 480 },
+        audio: true
+      })
+
+      recordingStreamRef.current = stream
+      recordingChunksRef.current = []
+
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream
+      }
+
+      setIsCameraOn(true)
+      setBehaviorState('Attentive')
+
+      const mimeType = MediaRecorder.isTypeSupported('video/webm;codecs=vp8,opus')
+        ? 'video/webm;codecs=vp8,opus'
+        : 'video/webm'
+
+      const recorder = new MediaRecorder(stream, { mimeType })
+      mediaRecorderRef.current = recorder
+
+      recorder.ondataavailable = (event) => {
+        if (event.data?.size > 0) {
+          recordingChunksRef.current.push(event.data)
+        }
+      }
+
+      recorder.onerror = (event) => {
+        console.error('Interview recording failed:', event.error)
+        setRecordingStatus('failed')
+        setRecordingMetadata({
+          recordingStatus: 'failed',
+          recordingError: event.error?.message || 'Recorder failed.'
+        })
+      }
+
+      recorder.start(1000)
+      setRecordingStatus('recording')
+      return stream
+    } catch (error) {
+      console.error('Recording permission failed:', error)
+      setRecordingStatus('failed')
+      setRecordingMetadata({
+        recordingStatus: 'failed',
+        recordingError: error?.message || 'Camera or microphone permission denied.'
+      })
+      return null
+    }
+  }
+
+  const stopInterviewRecording = () => {
+    return new Promise((resolve) => {
+      const recorder = mediaRecorderRef.current
+      if (!recorder || recorder.state === 'inactive') {
+        resolve(recordingMetadata || { recordingStatus: 'not_available' })
+        return
+      }
+
+      let resolved = false
+      const resolveOnce = (value) => {
+        if (resolved) return
+        resolved = true
+        resolve(value)
+      }
+
+      const fallbackTimer = setTimeout(() => {
+        const timedOut = {
+          recordingStatus: 'failed',
+          recordingError: 'Recording stop timed out. Report generation continued.',
+          recordingAttachmentMode: 'not_available'
+        }
+        setRecordingMetadata(timedOut)
+        recordingStreamRef.current?.getTracks().forEach(track => track.stop())
+        recordingStreamRef.current = null
+        mediaRecorderRef.current = null
+        recordingChunksRef.current = []
+        resolveOnce(timedOut)
+      }, 10000)
+
+      recorder.onstop = async () => {
+        try {
+          clearTimeout(fallbackTimer)
+          const chunks = recordingChunksRef.current
+          const blob = new Blob(chunks, { type: recorder.mimeType || 'video/webm' })
+          const metadata = await withTimeout(
+            uploadInterviewRecording(blob),
+            45000,
+            {
+              recordingStatus: 'failed',
+              recordingError: 'Recording upload timed out. Report generation continued.',
+              recordingAttachmentMode: 'not_available',
+              recordingSize: blob.size,
+              recordingMimeType: blob.type || 'video/webm'
+            }
+          )
+          setRecordingMetadata(metadata)
+          resolveOnce(metadata)
+        } catch (error) {
+          console.error('Recording upload failed:', error)
+          const failed = {
+            recordingStatus: 'failed',
+            recordingError: error?.message || 'Recording upload failed.',
+            recordingAttachmentMode: 'not_available'
+          }
+          setRecordingMetadata(failed)
+          resolveOnce(failed)
+        } finally {
+          clearTimeout(fallbackTimer)
+          recordingStreamRef.current?.getTracks().forEach(track => track.stop())
+          recordingStreamRef.current = null
+          mediaRecorderRef.current = null
+          recordingChunksRef.current = []
+        }
+      }
+
+      setRecordingStatus('uploading')
+      try {
+        recorder.stop()
+      } catch (error) {
+        clearTimeout(fallbackTimer)
+        const failed = {
+          recordingStatus: 'failed',
+          recordingError: error?.message || 'Recording could not be stopped.',
+          recordingAttachmentMode: 'not_available'
+        }
+        setRecordingMetadata(failed)
+        resolveOnce(failed)
+      }
+    })
+  }
+
+  const uploadInterviewRecording = async (blob) => {
+    if (!blob?.size) {
+      return { recordingStatus: 'not_available', recordingError: 'No recording data captured.' }
+    }
+
+    const candidate = getCurrentCandidate()
+    const userId = candidate.userId || 'anonymous'
+    const interviewId = interviewState.sessionId || sessionStorage.getItem('currentSessionId') || `interview_${Date.now()}`
+    const candidateName = (candidate.fullName || 'Candidate').replace(/[^A-Za-z0-9_-]+/g, '_')
+    const recordingFileName = `HireReady_Interview_Recording_${candidateName}_${interviewId}.webm`
+    const attachmentLimit = 10 * 1024 * 1024
+
+    try {
+      const path = `interview-recordings/${userId}/${interviewId}/recording.webm`
+      const fileRef = storageRef(storage, path)
+
+      const firebaseUploadResult = await withTimeout(
+        uploadBytes(fileRef, blob, {
+          contentType: blob.type || 'video/webm',
+          customMetadata: {
+            userId,
+            interviewId,
+            recordingFileName
+          }
+        }),
+        6000,
+        'firebase_upload_timeout'
+      )
+
+      if (firebaseUploadResult === 'firebase_upload_timeout') {
+        throw new Error('Firebase recording upload timed out.')
+      }
+
+      const recordingUrl = await withTimeout(
+        getDownloadURL(fileRef),
+        4000,
+        ''
+      )
+
+      if (!recordingUrl) {
+        throw new Error('Firebase recording URL timed out.')
+      }
+      const metadata = {
+        recordingStatus: 'uploaded',
+        recordingUrl,
+        recordingFileName,
+        recordingMimeType: blob.type || 'video/webm',
+        recordingSize: blob.size,
+        recordingUploadedAt: new Date().toISOString(),
+        recordingAttachmentMode: blob.size <= attachmentLimit ? 'attached' : 'link',
+        recordingStorage: 'firebase'
+      }
+
+      setRecordingStatus('uploaded')
+      return metadata
+    } catch (firebaseError) {
+      console.warn('Firebase recording upload failed, using backend fallback:', firebaseError)
+    }
+
+    const formData = new FormData()
+    formData.append('file', blob, recordingFileName)
+    formData.append('userId', userId)
+    formData.append('interviewId', interviewId)
+    formData.append('candidateName', candidate.fullName || 'Candidate')
+    formData.append('recordingFileName', recordingFileName)
+
+    const response = await withTimeout(
+      apiService.uploadInterviewRecording(formData),
+      25000,
+      null
+    )
+
+    if (!response) {
+      throw new Error('Backend recording fallback upload timed out.')
+    }
+    const fallbackRecording = response.recording || {}
+    const metadata = {
+      ...fallbackRecording,
+      recordingUrl: fallbackRecording.recordingUrl
+        ? `${apiService.baseURL}${fallbackRecording.recordingUrl}`
+        : '',
+      recordingAttachmentMode: blob.size <= attachmentLimit ? 'attached' : 'link'
+    }
+
+    setRecordingStatus('uploaded')
+    return metadata
+  }
+
+  const withTimeout = (promise, timeoutMs, fallbackValue) => {
+    let timeoutId
+    const timeoutPromise = new Promise((resolve) => {
+      timeoutId = setTimeout(() => resolve(fallbackValue), timeoutMs)
+    })
+
+    return Promise.race([promise, timeoutPromise]).finally(() => clearTimeout(timeoutId))
+  }
+
   const startBehaviorTracking = () => {
     if (!videoRef.current || behaviorIntervalRef.current) return
 
@@ -345,7 +597,7 @@ const InterviewRoom = () => {
     return total / (data.length / 4)
   }
 
-  const startInterview = () => {
+  const startInterview = async () => {
     setActiveQuestions(initialInterviewQuestions)
     setIsInterviewActive(true)
     setCurrentQuestionIndex(0)
@@ -353,7 +605,8 @@ const InterviewRoom = () => {
     setChatMessages([])
     setTranscript('')
     setTypedAnswer('')
-    startCamera()
+    setRecordingMetadata(null)
+    await startInterviewRecording()
   }
 
   const evaluateCurrentAnswer = async (answerOverride = null, modeOverride = answerMode) => {
@@ -445,13 +698,17 @@ const InterviewRoom = () => {
   }
 
   const endInterview = async (skipCurrentEvaluation = false, providedAnswers = null) => {
+    if (isEndingInterview) return
+    setIsEndingInterview(true)
     setIsInterviewActive(false)
     setIsAISpeaking(false)
     setIsListening(false)
     stopSpeechRecognition()
+    const shouldSkipEvaluation = skipCurrentEvaluation === true
+    const finalRecordingMetadata = await stopInterviewRecording()
     stopCamera()
 
-    const latestAnswer = skipCurrentEvaluation
+    const latestAnswer = shouldSkipEvaluation
       ? null
       : await evaluateCurrentAnswer(answerMode === 'text' ? typedAnswer : null, answerMode)
     const finalAnswers = providedAnswers || (latestAnswer ? [...answers, latestAnswer] : answers)
@@ -459,21 +716,28 @@ const InterviewRoom = () => {
     try {
       const response = await apiService.endInterviewSession({
         session_id: interviewState.sessionId || `session_${Date.now()}`,
-        user_id: 'user_123',
+        user_id: getCurrentCandidate().userId || 'user_123',
         company: interviewState.company || 'Unknown',
         role: interviewState.role || 'Unknown',
         questions: activeQuestions,
         answers: finalAnswers,
         behavior_data: finalAnswers.map(item => item.behavior_data || {}),
         answer_modes: finalAnswers.map(item => item.input_mode || 'voice'),
-        scores: {}
+        scores: {},
+        recording: finalRecordingMetadata || { recordingStatus: 'not_available' }
       })
 
-      sessionStorage.setItem('interviewReport', JSON.stringify(response.report || {}))
-      navigate('/feedback', { state: { report: response.report || {} } })
+      const reportWithRecording = {
+        ...(response.report || {}),
+        recording: finalRecordingMetadata || { recordingStatus: 'not_available' }
+      }
+      sessionStorage.setItem('interviewReport', JSON.stringify(reportWithRecording))
+      navigate('/feedback', { state: { report: reportWithRecording } })
     } catch (error) {
       console.error('Final report failed:', error)
       navigate('/feedback')
+    } finally {
+      setIsEndingInterview(false)
     }
   }
 
@@ -674,6 +938,18 @@ const InterviewRoom = () => {
                      'Ready'}
                   </span>
                 </div>
+                {recordingStatus === 'recording' && (
+                  <div className="mt-3 inline-flex items-center space-x-2 rounded-full border border-red-400/30 bg-red-500/10 px-4 py-2 text-sm text-red-200">
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-red-400" />
+                    <span>Recording</span>
+                  </div>
+                )}
+                {recordingStatus === 'uploading' && (
+                  <div className="mt-3 text-sm text-neon-cyan">Saving interview recording...</div>
+                )}
+                {recordingStatus === 'failed' && (
+                  <div className="mt-3 text-xs text-yellow-300">Recording unavailable. Interview will continue.</div>
+                )}
               </div>
 
               <div className="mt-5 space-y-3 rounded-2xl border border-white/10 bg-black/20 p-4">
@@ -958,12 +1234,12 @@ const InterviewRoom = () => {
                       </button>
                     )}
                     <button
-                      onClick={endInterview}
-                      disabled={isEvaluating}
+                      onClick={() => endInterview()}
+                      disabled={isEvaluating || isEndingInterview}
                       className="px-6 py-3 rounded-xl bg-red-500/20 text-red-400 border border-red-500/30 hover:bg-red-500/30 transition-colors flex items-center"
                     >
                       <StopCircle className="w-5 h-5 mr-2" />
-                      End Interview
+                      {isEndingInterview ? 'Ending...' : 'End Interview'}
                     </button>
                   </>
                 )}

@@ -12,12 +12,19 @@ class BrevoEmailService:
         self.from_email = os.getenv("BREVO_FROM_EMAIL") or os.getenv("FROM_EMAIL", "noreply@hireready.ai")
         self.from_name = os.getenv("BREVO_FROM_NAME") or os.getenv("FROM_NAME", "HireReady AI")
 
-    def send_report(self, to_email: str, candidate_name: str, subject: str, body: str, pdf_path: str, filename: str) -> Dict[str, str]:
+    def send_report(self, to_email: str, candidate_name: str, subject: str, body: str, pdf_path: str, filename: str, extra_attachments: list | None = None) -> Dict[str, str]:
         if not self.api_key:
             raise RuntimeError("BREVO_API_KEY is not configured")
 
         with open(pdf_path, "rb") as handle:
             attachment = base64.b64encode(handle.read()).decode("utf-8")
+
+        attachments = [{"content": attachment, "name": filename}]
+        for extra in extra_attachments or []:
+            attachments.append({
+                "content": base64.b64encode(extra["content"]).decode("utf-8"),
+                "name": extra["filename"],
+            })
 
         response = requests.post(
             "https://api.brevo.com/v3/smtp/email",
@@ -31,7 +38,7 @@ class BrevoEmailService:
                 "to": [{"email": to_email, "name": candidate_name}],
                 "subject": subject,
                 "textContent": body,
-                "attachment": [{"content": attachment, "name": filename}],
+                "attachment": attachments,
             },
             timeout=20,
         )

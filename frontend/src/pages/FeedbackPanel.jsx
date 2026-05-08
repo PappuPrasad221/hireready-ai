@@ -56,6 +56,7 @@ const FeedbackPanel = () => {
   const [isGenerating, setIsGenerating] = useState(!hasReport)
   const [emailAutomation, setEmailAutomation] = useState(null)
   const [isEmailing, setIsEmailing] = useState(false)
+  const [recordingDownloadStatus, setRecordingDownloadStatus] = useState('idle')
 
   useEffect(() => {
     if (hasReport) return
@@ -151,6 +152,43 @@ const FeedbackPanel = () => {
   const pdfDownloadUrl = emailAutomation?.pdf?.pdfUrl
     ? `${apiService.baseURL}${emailAutomation.pdf.pdfUrl}`
     : ''
+  const recordingInfo = report.recording || {}
+
+  const getRecordingDownloadUrl = () => {
+    if (!recordingInfo.recordingUrl) return ''
+    if (recordingInfo.recordingUrl.startsWith('/uploads/')) {
+      return `${apiService.baseURL}${recordingInfo.recordingUrl}`
+    }
+    return recordingInfo.recordingUrl
+  }
+
+  const downloadRecording = async () => {
+    const recordingUrl = getRecordingDownloadUrl()
+    if (!recordingUrl) {
+      setRecordingDownloadStatus('missing')
+      return
+    }
+
+    setRecordingDownloadStatus('loading')
+    try {
+      const response = await fetch(recordingUrl)
+      if (!response.ok) throw new Error('Recording fetch failed')
+
+      const blob = await response.blob()
+      const objectUrl = window.URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = objectUrl
+      link.download = recordingInfo.recordingFileName || 'HireReady_Interview_Recording.webm'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      window.URL.revokeObjectURL(objectUrl)
+      setRecordingDownloadStatus('idle')
+    } catch (error) {
+      console.error('Recording download failed:', error)
+      setRecordingDownloadStatus('error')
+    }
+  }
 
   const emailStatusContent = () => {
     if (isEmailing) {
@@ -344,6 +382,57 @@ const FeedbackPanel = () => {
               </div>
             </div>
           </motion.div>
+
+          {/* Recording Status */}
+          {recordingInfo.recordingStatus && (
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.3 }}
+              className="mb-12 rounded-3xl border border-white/10 bg-white/[0.04] p-5"
+            >
+              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold text-white">
+                    {recordingInfo.recordingStatus === 'uploaded' ? 'Interview recording saved' : 'Interview recording unavailable'}
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-400">
+                    {recordingInfo.recordingStatus === 'uploaded'
+                      ? 'Recording link is available and will be included with the email report.'
+                      : recordingInfo.recordingError || 'The report email will still include the PDF.'}
+                  </p>
+                </div>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  {recordingInfo.recordingUrl && (
+                    <a
+                      href={getRecordingDownloadUrl()}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-secondary justify-center"
+                    >
+                      View Recording
+                    </a>
+                  )}
+                  <button
+                    onClick={downloadRecording}
+                    disabled={!recordingInfo.recordingUrl || recordingDownloadStatus === 'loading'}
+                    className="btn-secondary justify-center disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {recordingDownloadStatus === 'loading'
+                      ? 'Preparing Download...'
+                      : recordingDownloadStatus === 'error'
+                      ? 'Download Failed'
+                      : recordingInfo.recordingUrl
+                      ? 'Download Recording'
+                      : 'Recording Not Available'}
+                  </button>
+                </div>
+              </div>
+              {recordingDownloadStatus === 'error' && (
+                <p className="mt-3 text-sm text-red-300">Recording download failed. Please try again.</p>
+              )}
+            </motion.div>
+          )}
 
           {/* Detailed Scores Grid */}
           <div className="grid md:grid-cols-5 gap-4 mb-12">

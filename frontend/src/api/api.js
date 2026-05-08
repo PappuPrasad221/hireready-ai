@@ -155,6 +155,14 @@ class ApiService {
     })
   }
 
+  async uploadInterviewRecording(formData) {
+    return this.request('/api/report/recording/upload', {
+      method: 'POST',
+      body: formData,
+      headers: {},
+    })
+  }
+
   async getSessionData(sessionId) {
     return this.request(`/api/interview/session/${sessionId}`)
   }
