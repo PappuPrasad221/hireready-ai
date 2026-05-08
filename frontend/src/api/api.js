@@ -33,6 +33,14 @@ class ApiService {
     }
   }
 
+  // Candidate profile API
+  async saveCandidateProfile(profile) {
+    return this.request('/api/auth/profile', {
+      method: 'POST',
+      body: JSON.stringify(profile),
+    })
+  }
+
   // Resume API
   async uploadResume(file) {
     const formData = new FormData()
@@ -123,6 +131,27 @@ class ApiService {
     return this.request('/api/report/generate', {
       method: 'POST',
       body: JSON.stringify(session),
+    })
+  }
+
+  async generateReportPdf(reportData, candidateProfile, interviewId = '') {
+    return this.request('/api/report/generate-pdf', {
+      method: 'POST',
+      body: JSON.stringify({ reportData, candidateProfile, interviewId }),
+    })
+  }
+
+  async sendReportEmail(candidateProfile, pdfInfo, reportId = '') {
+    return this.request('/api/report/email', {
+      method: 'POST',
+      body: JSON.stringify({ candidateProfile, pdfInfo, reportId }),
+    })
+  }
+
+  async completeReportAutomation(reportData, candidateProfile, interviewId = '') {
+    return this.request('/api/report/complete', {
+      method: 'POST',
+      body: JSON.stringify({ reportData, candidateProfile, interviewId }),
     })
   }
 

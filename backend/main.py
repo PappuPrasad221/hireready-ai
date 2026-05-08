@@ -12,6 +12,7 @@ from routes.interview import router as interview_router
 from routes.job import router as job_router
 from routes.analytics import router as analytics_router
 from routes.report import router as report_router
+from routes.auth import router as auth_router
 from firebase_config import initialize_firebase
 from utils.logger import log_request, log_response, log_error, log_system_event
 from utils.exceptions import handle_exception
@@ -61,6 +62,7 @@ app.include_router(interview_router, prefix="/api/interview", tags=["Interview"]
 app.include_router(job_router, prefix="/api/job", tags=["Job"])
 app.include_router(analytics_router, prefix="/api/analytics", tags=["Analytics"])
 app.include_router(report_router, prefix="/api/report", tags=["Report"])
+app.include_router(auth_router, prefix="/api/auth", tags=["Auth"])
 
 # Create local directories
 os.makedirs("uploads", exist_ok=True)

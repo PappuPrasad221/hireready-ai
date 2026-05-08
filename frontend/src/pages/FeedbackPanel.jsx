@@ -1,7 +1,30 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
-import { CheckCircle, AlertCircle, TrendingUp, MessageSquare, Star, ArrowRight, Brain, Lightbulb, Target, Zap, Download, Share2 } from 'lucide-react'
+import { CheckCircle, AlertCircle, TrendingUp, MessageSquare, Star, ArrowRight, Brain, Lightbulb, Target, Zap, Download, Share2, Mail, RefreshCw } from 'lucide-react'
+import apiService from '../api/api'
+
+const readStoredJson = (key, fallback = null) => {
+  try {
+    return JSON.parse(localStorage.getItem(key) || sessionStorage.getItem(key) || 'null') || fallback
+  } catch {
+    return fallback
+  }
+}
+
+const attachCandidateToReport = (report, profile) => {
+  const linkedReport = {
+    ...report,
+    userId: profile?.userId || report.userId || '',
+    candidateName: profile?.fullName || report.candidateName || '',
+    candidateEmail: profile?.email || report.candidateEmail || '',
+    sessionId: profile?.sessionId || report.sessionId || report.session_id || '',
+    interviewId: report.interviewId || report.session_id || ''
+  }
+
+  console.log('Report linked to candidateEmail', linkedReport.candidateEmail)
+  return linkedReport
+}
 
 const FeedbackPanel = () => {
   const location = useLocation()
@@ -31,6 +54,8 @@ const FeedbackPanel = () => {
     }
   })
   const [isGenerating, setIsGenerating] = useState(!hasReport)
+  const [emailAutomation, setEmailAutomation] = useState(null)
+  const [isEmailing, setIsEmailing] = useState(false)
 
   useEffect(() => {
     if (hasReport) return
@@ -46,6 +71,71 @@ const FeedbackPanel = () => {
     })
   }, [])
 
+  useEffect(() => {
+    if (!hasReport) return
+
+    const profile = readStoredJson('candidateProfile')
+    if (!profile?.email) {
+      setEmailAutomation({ emailStatus: 'missing_profile' })
+      return
+    }
+
+    const automationKey = `reportEmailAutomation:${report.session_id || report.generated_at || 'latest'}`
+    const storedAutomation = readStoredJson(automationKey)
+    if (storedAutomation) {
+      setEmailAutomation(storedAutomation)
+      return
+    }
+
+    let isMounted = true
+    const runAutomation = async () => {
+      setIsEmailing(true)
+      try {
+        const linkedReport = attachCandidateToReport(report, profile)
+        const result = await apiService.completeReportAutomation(linkedReport, profile, linkedReport.interviewId || linkedReport.sessionId || '')
+        sessionStorage.setItem(automationKey, JSON.stringify(result))
+        if (isMounted) setEmailAutomation(result)
+      } catch (error) {
+        const failed = {
+          emailStatus: 'failed',
+          emailError: error?.response?.data?.detail || 'Report email automation failed.'
+        }
+        sessionStorage.setItem(automationKey, JSON.stringify(failed))
+        if (isMounted) setEmailAutomation(failed)
+      } finally {
+        if (isMounted) setIsEmailing(false)
+      }
+    }
+
+    runAutomation()
+    return () => {
+      isMounted = false
+    }
+  }, [hasReport, report.session_id, report.generated_at])
+
+  const resendReportEmail = async () => {
+    const profile = readStoredJson('candidateProfile')
+    if (!profile?.email) {
+      setEmailAutomation({ emailStatus: 'missing_profile' })
+      return
+    }
+
+    setIsEmailing(true)
+    try {
+      const linkedReport = attachCandidateToReport(report, profile)
+      const result = await apiService.completeReportAutomation(linkedReport, profile, linkedReport.interviewId || linkedReport.sessionId || '')
+      setEmailAutomation(result)
+      sessionStorage.setItem(`reportEmailAutomation:${report.session_id || report.generated_at || 'latest'}`, JSON.stringify(result))
+    } catch (error) {
+      setEmailAutomation({
+        emailStatus: 'failed',
+        emailError: error?.response?.data?.detail || 'Report email automation failed.'
+      })
+    } finally {
+      setIsEmailing(false)
+    }
+  }
+
   const getScoreColor = (score) => {
     if (score >= 80) return 'text-green-400'
     if (score >= 60) return 'text-yellow-400'
@@ -56,6 +146,53 @@ const FeedbackPanel = () => {
     if (score >= 80) return 'from-green-500/20 to-green-400/20'
     if (score >= 60) return 'from-yellow-500/20 to-yellow-400/20'
     return 'from-red-500/20 to-red-400/20'
+  }
+
+  const pdfDownloadUrl = emailAutomation?.pdf?.pdfUrl
+    ? `${apiService.baseURL}${emailAutomation.pdf.pdfUrl}`
+    : ''
+
+  const emailStatusContent = () => {
+    if (isEmailing) {
+      return {
+        tone: 'border-neon-blue/30 bg-neon-blue/10 text-neon-cyan',
+        title: 'Preparing PDF report',
+        detail: 'Generating your PDF and sending it to the candidate email.'
+      }
+    }
+    if (emailAutomation?.emailStatus === 'sent_via_brevo') {
+      return {
+        tone: 'border-green-400/30 bg-green-500/10 text-green-200',
+        title: 'Report emailed successfully',
+        detail: 'The PDF report was delivered using Brevo.'
+      }
+    }
+    if (emailAutomation?.emailStatus === 'sent_via_resend') {
+      return {
+        tone: 'border-yellow-400/30 bg-yellow-500/10 text-yellow-200',
+        title: 'Brevo failed - sent using backup provider',
+        detail: 'The PDF report was delivered using Resend fallback.'
+      }
+    }
+    if (emailAutomation?.emailStatus === 'missing_profile') {
+      return {
+        tone: 'border-yellow-400/30 bg-yellow-500/10 text-yellow-200',
+        title: 'Candidate profile is required',
+        detail: 'Add your name and email to enable automatic PDF report delivery.'
+      }
+    }
+    if (emailAutomation?.emailStatus === 'failed') {
+      return {
+        tone: 'border-red-400/30 bg-red-500/10 text-red-200',
+        title: 'Email delivery failed',
+        detail: emailAutomation.emailError || 'The PDF was generated, but email delivery could not be completed.'
+      }
+    }
+    return {
+      tone: 'border-white/10 bg-white/[0.04] text-gray-300',
+      title: 'Report email automation',
+      detail: 'Your PDF report will be emailed after the final report is ready.'
+    }
   }
 
   if (isGenerating) {
@@ -168,6 +305,42 @@ const FeedbackPanel = () => {
                   {feedbackData.overallScore}
                 </div>
                 <div className="text-sm text-gray-400">Overall Score</div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* PDF + Email Status */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className={`mb-12 rounded-3xl border p-5 ${emailStatusContent().tone}`}
+          >
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 rounded-2xl bg-white/10 p-2">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white">{emailStatusContent().title}</h3>
+                  <p className="mt-1 text-sm opacity-90">{emailStatusContent().detail}</p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                {pdfDownloadUrl && (
+                  <a href={pdfDownloadUrl} target="_blank" rel="noreferrer" className="btn-secondary justify-center">
+                    <Download className="mr-2 h-4 w-4" />
+                    Download PDF
+                  </a>
+                )}
+                <button
+                  onClick={resendReportEmail}
+                  disabled={isEmailing}
+                  className="btn-secondary justify-center disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <RefreshCw className={`mr-2 h-4 w-4 ${isEmailing ? 'animate-spin' : ''}`} />
+                  Resend Email
+                </button>
               </div>
             </div>
           </motion.div>
@@ -367,10 +540,17 @@ const FeedbackPanel = () => {
               View Full Dashboard
               <TrendingUp className="w-5 h-5 ml-2" />
             </Link>
-            <button className="btn-secondary text-lg flex items-center justify-center">
+            {pdfDownloadUrl ? (
+              <a href={pdfDownloadUrl} target="_blank" rel="noreferrer" className="btn-secondary text-lg flex items-center justify-center">
+                <Download className="w-5 h-5 mr-2" />
+                Download Report
+              </a>
+            ) : (
+            <button className="btn-secondary text-lg flex items-center justify-center" disabled>
               <Download className="w-5 h-5 mr-2" />
               Download Report
             </button>
+            )}
             <button className="btn-secondary text-lg flex items-center justify-center">
               <Share2 className="w-5 h-5 mr-2" />
               Share Results

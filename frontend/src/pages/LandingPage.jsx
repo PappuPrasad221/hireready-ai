@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   ArrowRight,
   BarChart3,
@@ -27,6 +27,7 @@ const fadeUp = {
 }
 
 const LandingPage = () => {
+  const navigate = useNavigate()
   const stats = [
     { value: '10K+', label: 'Interview Sessions' },
     { value: '5K+', label: 'Students Practicing' },
@@ -75,6 +76,41 @@ const LandingPage = () => {
     'Improve & Track'
   ]
 
+  const clearPreviousSession = () => {
+    const keysToClear = [
+      'userId',
+      'candidateName',
+      'candidateEmail',
+      'candidateProfile',
+      'currentInterviewId',
+      'currentReportId',
+      'currentSessionId',
+      'interviewReport',
+      'interviewSession',
+      'resumeAnalysis',
+      'jobInsights',
+      'selectedResume',
+      'selectedJob'
+    ]
+
+    keysToClear.forEach((key) => {
+      localStorage.removeItem(key)
+      sessionStorage.removeItem(key)
+    })
+
+    Object.keys(sessionStorage)
+      .filter((key) => key.startsWith('reportEmailAutomation:'))
+      .forEach((key) => sessionStorage.removeItem(key))
+
+    console.log('Previous session cleared')
+  }
+
+  const startFreshInterview = (event) => {
+    event.preventDefault()
+    clearPreviousSession()
+    navigate('/profile')
+  }
+
   return (
     <div className="min-h-screen overflow-hidden bg-dark-bg text-white">
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_18%_4%,rgba(0,212,255,0.12),transparent_30%),radial-gradient(circle_at_88%_12%,rgba(124,58,237,0.12),transparent_28%),linear-gradient(135deg,#080912_0%,#101225_50%,#080912_100%)]" />
@@ -98,7 +134,7 @@ const LandingPage = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <Link to="/resume" className="rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple px-5 py-3 text-sm font-semibold text-white shadow-[0_0_20px_rgba(0,212,255,.16)] transition hover:shadow-[0_0_28px_rgba(0,212,255,.24)]">
+            <Link to="/profile" onClick={startFreshInterview} className="rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple px-5 py-3 text-sm font-semibold text-white shadow-[0_0_20px_rgba(0,212,255,.16)] transition hover:shadow-[0_0_28px_rgba(0,212,255,.24)]">
               Start Interview
             </Link>
           </div>
@@ -124,7 +160,7 @@ const LandingPage = () => {
               HireReady AI combines resume intelligence, adaptive mock interviews, behavior tracking, and performance analytics in one professional coaching workflow.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <Link to="/resume" className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple px-6 py-4 font-semibold text-white shadow-[0_0_24px_rgba(0,212,255,.18)] transition hover:-translate-y-0.5">
+              <Link to="/profile" onClick={startFreshInterview} className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple px-6 py-4 font-semibold text-white shadow-[0_0_24px_rgba(0,212,255,.18)] transition hover:-translate-y-0.5">
                 Start Free Interview
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -336,7 +372,7 @@ const LandingPage = () => {
               Practice with realistic questions, receive structured feedback, and track progress with professional analytics.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              <Link to="/resume" className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple px-6 py-4 font-semibold text-white shadow-[0_0_24px_rgba(0,212,255,.18)]">
+              <Link to="/profile" onClick={startFreshInterview} className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple px-6 py-4 font-semibold text-white shadow-[0_0_24px_rgba(0,212,255,.18)]">
                 Start Free Interview
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
