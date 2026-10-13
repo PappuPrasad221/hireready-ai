@@ -32,10 +32,13 @@ class ResumeAnalyzer:
     def __init__(self):
         self.gemini_service = GeminiService()
         self.logger = logging.getLogger(__name__)
-        try:
-            self.nlp = spacy.load("en_core_web_sm")
-        except OSError:
-            print("Warning: spaCy model not found. Using basic analysis.")
+        if SPACY_AVAILABLE:
+            try:
+                self.nlp = spacy.load("en_core_web_sm")
+            except Exception:
+                print("Warning: spaCy model not found. Using basic analysis.")
+                self.nlp = None
+        else:
             self.nlp = None
         
         # Common tech skills and keywords
