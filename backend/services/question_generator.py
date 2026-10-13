@@ -1,6 +1,13 @@
 from typing import Dict, Any, List
 import re
 
+try:
+    from services.question_bank_service import getMatchingQuestions
+    from services.question_generation_service import QuestionGenerationService
+except Exception:
+    getMatchingQuestions = None
+    QuestionGenerationService = None
+
 
 class QuestionGenerator:
     """Generate structured, resume/job-aware interview rounds and follow-ups."""
@@ -21,13 +28,20 @@ class QuestionGenerator:
         company: str,
     ) -> List[Dict[str, Any]]:
         context = self._build_context(resume_data, job_insights, role, company)
-        return [
-            {"round": "HR", "questions": self._hr_questions(context)},
-            {"round": "Resume-Based", "questions": self._resume_questions(context)},
-            {"round": "Project-Based", "questions": self._project_questions(context)},
-            {"round": "Technical", "questions": self._technical_questions(context)},
-            {"round": "Behavioral", "questions": self._behavioral_questions(context)},
+        round_plans = [
+            ("HR", self._hr_questions(context)),
+            ("Resume-Based", self._resume_questions(context)),
+            ("Project-Based", self._project_questions(context)),
+            ("Technical", self._technical_questions(context)),
+            ("Behavioral", self._behavioral_questions(context)),
         ]
+        interview_plan = []
+        for round_name, questions in round_plans:
+            interview_plan.append({
+                "round": round_name,
+                "questions": await self._blend_question_bank(round_name, questions, context),
+            })
+        return interview_plan
 
     async def generate_questions(
         self,
@@ -217,6 +231,105 @@ class QuestionGenerator:
             "followUpTriggers": followup_triggers,
             "is_followup": is_followup,
         }
+
+    async def _blend_question_bank(
+        self,
+        round_name: str,
+        generated_questions: List[Dict[str, Any]],
+        context: Dict[str, Any],
+    ) -> List[Dict[str, Any]]:
+        target_count = 4 if round_name in {"HR", "Project-Based", "Technical"} else 3
+        if round_name in {"Resume-Based", "Project-Based"}:
+            if len(generated_questions) >= target_count:
+                return generated_questions[:target_count]
+            dynamic = await self._generate_dynamic_questions(round_name, [], target_count - len(generated_questions), context)
+            return self._dedupe_by_text(generated_questions + dynamic)[:target_count]
+        if not getMatchingQuestions:
+            return generated_questions
+
+        try:
+            bank_questions = getMatchingQuestions(
+                round_name=round_name,
+                company=context.get("company", ""),
+                role=context.get("role", ""),
+                skills=context.get("skills", []) + context.get("job_skills", []),
+                topics=context.get("topics", []) + context.get("tools", []),
+                limit=target_count,
+            )
+        except Exception as error:
+            print(f"Question bank retrieval skipped for {round_name}: {error}")
+            return generated_questions
+
+        converted = [
+            self._question_from_bank(round_name, index, question)
+            for index, question in enumerate(bank_questions, start=1)
+        ]
+        missing_count = max(0, target_count - len(converted))
+        dynamic = await self._generate_dynamic_questions(round_name, bank_questions, missing_count, context)
+        blended = self._dedupe_by_text(converted + dynamic + generated_questions)
+        print(
+            f"Question bank blend round={round_name} "
+            f"bank_used={len(converted)} ai_generated={len(dynamic)} total={len(blended[:target_count])}"
+        )
+        return blended[:target_count]
+
+    async def _generate_dynamic_questions(
+        self,
+        round_name: str,
+        existing_questions: List[Dict[str, Any]],
+        count: int,
+        context: Dict[str, Any],
+    ) -> List[Dict[str, Any]]:
+        if count <= 0 or not QuestionGenerationService:
+            return []
+        topic = self._pick_first(context.get("topics", []), context.get("job_skills", []), context.get("skills", []), [round_name])
+        try:
+            generated = await QuestionGenerationService().generate_questions_from_pattern(
+                existing_questions=existing_questions,
+                round_name=round_name,
+                topic=topic,
+                role=context.get("role", ""),
+                company=context.get("company", ""),
+                resume_skills=context.get("skills", []) + context.get("job_skills", []),
+                count=count,
+            )
+            return [
+                self._question_from_bank(round_name, index, question)
+                for index, question in enumerate(generated, start=1)
+            ]
+        except Exception as error:
+            print(f"Dynamic question generation skipped for {round_name}: {error}")
+            return []
+
+    def _question_from_bank(self, round_name: str, index: int, item: Dict[str, Any]) -> Dict[str, Any]:
+        expected_points = item.get("expectedAnswerPoints") or item.get("expected_answer_points") or []
+        if isinstance(expected_points, str):
+            expected_points = [expected_points]
+        question = self._question(
+            round_name,
+            f"bank_{round_name.lower().replace('-', '_').replace(' ', '_')}_{index}",
+            item.get("question", ""),
+            f"question_bank/{item.get('source', 'curated')}",
+            expected_points,
+            ["too_short", "missing_expected_points", "vague_answer", "mentioned_tool_or_project"],
+            difficulty=item.get("difficulty", "medium"),
+        )
+        question["topic"] = item.get("topic", "")
+        question["answerHint"] = item.get("answerHint", "")
+        question["tags"] = item.get("tags", [])
+        question["company"] = item.get("company", "")
+        return question
+
+    def _dedupe_by_text(self, questions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        seen = set()
+        unique = []
+        for question in questions:
+            key = re.sub(r"[^a-z0-9]+", " ", str(question.get("question", "")).lower()).strip()
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            unique.append(question)
+        return unique
 
     def _followup_triggers(self, question_data: Dict[str, Any], answer: str, score: float, missing_points: List[str]) -> List[str]:
         words = re.findall(r"[A-Za-z0-9+#.]+", answer)

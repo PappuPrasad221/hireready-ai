@@ -1,0 +1,218 @@
+[
+  {
+    "id": "company_001",
+    "company": "TCS",
+    "round": "Company",
+    "topic": "TCS",
+    "difficulty": "medium",
+    "question": "How would you prepare for a service-based company interview where communication and fundamentals are both tested?",
+    "answerHint": "Balance HR and basics.",
+    "expectedAnswerPoints": [
+      "Company context",
+      "Fundamentals",
+      "Communication"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "company_002",
+    "company": "Infosys",
+    "round": "Company",
+    "topic": "Infosys",
+    "difficulty": "medium",
+    "question": "Explain how your project experience maps to a large enterprise software environment.",
+    "answerHint": "Connect project scale to enterprise needs.",
+    "expectedAnswerPoints": [
+      "Project relevance",
+      "Team process",
+      "Quality"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "company_003",
+    "company": "Wipro",
+    "round": "Company",
+    "topic": "Wipro",
+    "difficulty": "medium",
+    "question": "How would you handle being assigned to a technology stack that is new to you?",
+    "answerHint": "Show adaptability.",
+    "expectedAnswerPoints": [
+      "Learning plan",
+      "Mentorship",
+      "Delivery"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "company_004",
+    "company": "Accenture",
+    "round": "Company",
+    "topic": "Accenture",
+    "difficulty": "medium",
+    "question": "Describe how you would work with clients when requirements keep changing.",
+    "answerHint": "Show consulting mindset.",
+    "expectedAnswerPoints": [
+      "Requirement tracking",
+      "Communication",
+      "Change handling"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "company_005",
+    "company": "Cognizant",
+    "round": "Company",
+    "topic": "Cognizant",
+    "difficulty": "medium",
+    "question": "What makes you ready for a role involving both technical delivery and business communication?",
+    "answerHint": "Show dual ability.",
+    "expectedAnswerPoints": [
+      "Technical foundation",
+      "Communication",
+      "Business awareness"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "company_006",
+    "company": "Capgemini",
+    "round": "Company",
+    "topic": "Capgemini",
+    "difficulty": "medium",
+    "question": "Tell me how you would explain project risks to a manager before a release.",
+    "answerHint": "Show risk communication.",
+    "expectedAnswerPoints": [
+      "Risk identification",
+      "Impact",
+      "Mitigation"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "company_007",
+    "company": "Amazon",
+    "round": "Company",
+    "topic": "Amazon",
+    "difficulty": "medium",
+    "question": "Describe a time you showed ownership when the expected outcome was uncertain.",
+    "answerHint": "Use ownership principle.",
+    "expectedAnswerPoints": [
+      "Ownership",
+      "Bias for action",
+      "Result"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "company_008",
+    "company": "Microsoft",
+    "round": "Company",
+    "topic": "Microsoft",
+    "difficulty": "hard",
+    "question": "How would you design a feature with accessibility and reliability in mind?",
+    "answerHint": "Show inclusive engineering.",
+    "expectedAnswerPoints": [
+      "Accessibility",
+      "Reliability",
+      "Testing"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "company_009",
+    "company": "Google",
+    "round": "Company",
+    "topic": "Google",
+    "difficulty": "medium",
+    "question": "How do you approach solving an unfamiliar technical problem during an interview?",
+    "answerHint": "Show structured problem solving.",
+    "expectedAnswerPoints": [
+      "Clarification",
+      "Approach",
+      "Complexity"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "company_010",
+    "company": "Deloitte",
+    "round": "Company",
+    "topic": "Deloitte",
+    "difficulty": "medium",
+    "question": "How would you present technical findings to a non-technical stakeholder?",
+    "answerHint": "Show consulting communication.",
+    "expectedAnswerPoints": [
+      "Audience",
+      "Summary",
+      "Recommendation"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "company_011",
+    "company": "IBM",
+    "round": "Company",
+    "topic": "IBM",
+    "difficulty": "easy",
+    "question": "What is your approach to learning cloud or AI tools for an enterprise project?",
+    "answerHint": "Show structured learning.",
+    "expectedAnswerPoints": [
+      "Learning path",
+      "Hands-on practice",
+      "Governance"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "company_012",
+    "company": "HCL",
+    "round": "Company",
+    "topic": "HCL",
+    "difficulty": "medium",
+    "question": "How would you debug an application issue reported by a customer?",
+    "answerHint": "Show support workflow.",
+    "expectedAnswerPoints": [
+      "Reproduce",
+      "Logs",
+      "Root cause"
+    ],
+    "tags": [
+      "Company"
+    ],
+    "source": "IndiaBIX-style curated"
+  }
+]

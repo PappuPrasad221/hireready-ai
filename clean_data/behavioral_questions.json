@@ -1,0 +1,1019 @@
+[
+  {
+    "id": "behavioral_001",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Teamwork",
+    "difficulty": "medium",
+    "question": "Tell me about a time you helped a teammate succeed.",
+    "answerHint": "Use STAR and focus on contribution.",
+    "expectedAnswerPoints": [
+      "Situation",
+      "Action",
+      "Result"
+    ],
+    "tags": [
+      "Behavioral",
+      "Teamwork"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_002",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Conflict",
+    "difficulty": "medium",
+    "question": "Describe a disagreement in a project and how you resolved it.",
+    "answerHint": "Show communication maturity.",
+    "expectedAnswerPoints": [
+      "Conflict",
+      "Conversation",
+      "Resolution"
+    ],
+    "tags": [
+      "Behavioral",
+      "Conflict"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_003",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Leadership",
+    "difficulty": "medium",
+    "question": "Tell me about a time you led without having formal authority.",
+    "answerHint": "Show influence.",
+    "expectedAnswerPoints": [
+      "Context",
+      "Influence",
+      "Outcome"
+    ],
+    "tags": [
+      "Behavioral",
+      "Leadership"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_004",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Problem Solving",
+    "difficulty": "medium",
+    "question": "Describe a complex problem you broke into smaller parts.",
+    "answerHint": "Show method.",
+    "expectedAnswerPoints": [
+      "Problem",
+      "Breakdown",
+      "Result"
+    ],
+    "tags": [
+      "Behavioral"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_005",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Failure",
+    "difficulty": "medium",
+    "question": "Tell me about a mistake you made and what changed afterward.",
+    "answerHint": "Own the mistake.",
+    "expectedAnswerPoints": [
+      "Mistake",
+      "Learning",
+      "Preventive action"
+    ],
+    "tags": [
+      "Behavioral"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_006",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Pressure",
+    "difficulty": "medium",
+    "question": "Give an example of handling pressure during a deadline.",
+    "answerHint": "Show priorities and communication.",
+    "expectedAnswerPoints": [
+      "Deadline",
+      "Prioritization",
+      "Outcome"
+    ],
+    "tags": [
+      "Behavioral"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_007",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Ambiguity",
+    "difficulty": "medium",
+    "question": "Tell me about a task where requirements were unclear.",
+    "answerHint": "Show clarification and execution.",
+    "expectedAnswerPoints": [
+      "Ambiguity",
+      "Clarifying questions",
+      "Delivery"
+    ],
+    "tags": [
+      "Behavioral"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_008",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Communication",
+    "difficulty": "medium",
+    "question": "Describe a time you explained a technical topic to a non-technical person.",
+    "answerHint": "Show audience adaptation.",
+    "expectedAnswerPoints": [
+      "Audience",
+      "Simplification",
+      "Understanding"
+    ],
+    "tags": [
+      "Behavioral"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_009",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Initiative",
+    "difficulty": "medium",
+    "question": "Tell me about a time you improved a process or workflow.",
+    "answerHint": "Show measurable impact.",
+    "expectedAnswerPoints": [
+      "Before state",
+      "Improvement",
+      "Impact"
+    ],
+    "tags": [
+      "Behavioral"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_010",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Learning",
+    "difficulty": "medium",
+    "question": "Describe a recent skill you learned and how you applied it.",
+    "answerHint": "Connect learning to usage.",
+    "expectedAnswerPoints": [
+      "Skill",
+      "Practice method",
+      "Application"
+    ],
+    "tags": [
+      "Behavioral"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_011",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Ethics",
+    "difficulty": "medium",
+    "question": "What would you do if asked to ignore a serious bug before a demo?",
+    "answerHint": "Show judgment and escalation.",
+    "expectedAnswerPoints": [
+      "Risk",
+      "Communication",
+      "Responsible action"
+    ],
+    "tags": [
+      "Behavioral"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_012",
+    "company": "",
+    "round": "Behavioral",
+    "topic": "Customer Focus",
+    "difficulty": "medium",
+    "question": "Tell me about a time you changed work based on user feedback.",
+    "answerHint": "Show listening and iteration.",
+    "expectedAnswerPoints": [
+      "Feedback",
+      "Change",
+      "User impact"
+    ],
+    "tags": [
+      "Behavioral"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "behavioral_013",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Teamwork",
+    "difficulty": "medium",
+    "question": "Tell me about a time you handled ambiguity while working on Teamwork. Frame your answer around during a production deadline, with specific focus on Teamwork.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Teamwork",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_014",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Teamwork",
+    "difficulty": "medium",
+    "question": "Describe a situation where you helped a team recover from a setback. Frame your answer around while collaborating with a cross-functional team, with specific focus on Teamwork.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Teamwork",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_015",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Teamwork",
+    "difficulty": "medium",
+    "question": "Give an example of how you balanced quality and speed under pressure. Frame your answer around when requirements are incomplete, with specific focus on Teamwork.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Teamwork",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_016",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Teamwork",
+    "difficulty": "medium",
+    "question": "Tell me about a time you disagreed with a teammate and still delivered the outcome. Frame your answer around after receiving critical feedback, with specific focus on Teamwork.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Teamwork",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_017",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Teamwork",
+    "difficulty": "medium",
+    "question": "Tell me about a time you handled ambiguity while working on Teamwork. Frame your answer around while improving reliability, with specific focus on Teamwork.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Teamwork",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_018",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Teamwork",
+    "difficulty": "medium",
+    "question": "Describe a situation where you helped a team recover from a setback. Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on Teamwork.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Teamwork",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_019",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Teamwork",
+    "difficulty": "medium",
+    "question": "Give an example of how you balanced quality and speed under pressure. Frame your answer around while balancing speed and quality, with specific focus on Teamwork.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Teamwork",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_020",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Teamwork",
+    "difficulty": "medium",
+    "question": "Tell me about a time you disagreed with a teammate and still delivered the outcome. Frame your answer around when measuring impact with clear evidence, with specific focus on Teamwork.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Teamwork",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_021",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Teamwork",
+    "difficulty": "medium",
+    "question": "Tell me about a time you handled ambiguity while working on Teamwork. Frame your answer around while debugging an unexpected issue, with specific focus on Teamwork.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Teamwork",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_022",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Teamwork",
+    "difficulty": "medium",
+    "question": "Describe a situation where you helped a team recover from a setback. Frame your answer around when choosing between two possible approaches, with specific focus on Teamwork.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Teamwork",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_023",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Conflict",
+    "difficulty": "medium",
+    "question": "Tell me about a time you handled ambiguity while working on Conflict. Frame your answer around during a production deadline, with specific focus on Conflict.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Conflict",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_024",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Conflict",
+    "difficulty": "medium",
+    "question": "Describe a situation where you helped a team recover from a setback. Frame your answer around while collaborating with a cross-functional team, with specific focus on Conflict.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Conflict",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_025",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Conflict",
+    "difficulty": "medium",
+    "question": "Give an example of how you balanced quality and speed under pressure. Frame your answer around when requirements are incomplete, with specific focus on Conflict.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Conflict",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_026",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Conflict",
+    "difficulty": "medium",
+    "question": "Tell me about a time you disagreed with a teammate and still delivered the outcome. Frame your answer around after receiving critical feedback, with specific focus on Conflict.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Conflict",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_027",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Conflict",
+    "difficulty": "medium",
+    "question": "Tell me about a time you handled ambiguity while working on Conflict. Frame your answer around while improving reliability, with specific focus on Conflict.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Conflict",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_028",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Conflict",
+    "difficulty": "medium",
+    "question": "Describe a situation where you helped a team recover from a setback. Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on Conflict.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Conflict",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_029",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Conflict",
+    "difficulty": "medium",
+    "question": "Give an example of how you balanced quality and speed under pressure. Frame your answer around while balancing speed and quality, with specific focus on Conflict.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Conflict",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_030",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Conflict",
+    "difficulty": "medium",
+    "question": "Tell me about a time you disagreed with a teammate and still delivered the outcome. Frame your answer around when measuring impact with clear evidence, with specific focus on Conflict.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Conflict",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_031",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Conflict",
+    "difficulty": "medium",
+    "question": "Tell me about a time you handled ambiguity while working on Conflict. Frame your answer around while debugging an unexpected issue, with specific focus on Conflict.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Conflict",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_032",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Conflict",
+    "difficulty": "medium",
+    "question": "Describe a situation where you helped a team recover from a setback. Frame your answer around when choosing between two possible approaches, with specific focus on Conflict.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Conflict",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_033",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Leadership",
+    "difficulty": "medium",
+    "question": "Tell me about a time you handled ambiguity while working on Leadership. Frame your answer around during a production deadline, with specific focus on Leadership.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Leadership",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_034",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Leadership",
+    "difficulty": "medium",
+    "question": "Describe a situation where you helped a team recover from a setback. Frame your answer around while collaborating with a cross-functional team, with specific focus on Leadership.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Leadership",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_035",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Leadership",
+    "difficulty": "medium",
+    "question": "Give an example of how you balanced quality and speed under pressure. Frame your answer around when requirements are incomplete, with specific focus on Leadership.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Leadership",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_036",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Leadership",
+    "difficulty": "medium",
+    "question": "Tell me about a time you disagreed with a teammate and still delivered the outcome. Frame your answer around after receiving critical feedback, with specific focus on Leadership.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Leadership",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_037",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Leadership",
+    "difficulty": "medium",
+    "question": "Tell me about a time you handled ambiguity while working on Leadership. Frame your answer around while improving reliability, with specific focus on Leadership.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Leadership",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_038",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Leadership",
+    "difficulty": "medium",
+    "question": "Describe a situation where you helped a team recover from a setback. Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on Leadership.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Leadership",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_039",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Leadership",
+    "difficulty": "medium",
+    "question": "Give an example of how you balanced quality and speed under pressure. Frame your answer around while balancing speed and quality, with specific focus on Leadership.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Leadership",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_040",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Leadership",
+    "difficulty": "medium",
+    "question": "Tell me about a time you disagreed with a teammate and still delivered the outcome. Frame your answer around when measuring impact with clear evidence, with specific focus on Leadership.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Leadership",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_041",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Leadership",
+    "difficulty": "medium",
+    "question": "Tell me about a time you handled ambiguity while working on Leadership. Frame your answer around while debugging an unexpected issue, with specific focus on Leadership.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Leadership",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_042",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Leadership",
+    "difficulty": "medium",
+    "question": "Describe a situation where you helped a team recover from a setback. Frame your answer around when choosing between two possible approaches, with specific focus on Leadership.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Leadership",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_043",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Problem Solving",
+    "difficulty": "medium",
+    "question": "Tell me about a time you handled ambiguity while working on Problem Solving. Frame your answer around during a production deadline, with specific focus on Problem Solving.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Problem Solving",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_044",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Problem Solving",
+    "difficulty": "medium",
+    "question": "Describe a situation where you helped a team recover from a setback. Frame your answer around while collaborating with a cross-functional team, with specific focus on Problem Solving.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Problem Solving",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_045",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Problem Solving",
+    "difficulty": "medium",
+    "question": "Give an example of how you balanced quality and speed under pressure. Frame your answer around when requirements are incomplete, with specific focus on Problem Solving.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Problem Solving",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_046",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Problem Solving",
+    "difficulty": "medium",
+    "question": "Tell me about a time you disagreed with a teammate and still delivered the outcome. Frame your answer around after receiving critical feedback, with specific focus on Problem Solving.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Problem Solving",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_047",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Problem Solving",
+    "difficulty": "medium",
+    "question": "Tell me about a time you handled ambiguity while working on Problem Solving. Frame your answer around while improving reliability, with specific focus on Problem Solving.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Problem Solving",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_048",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Problem Solving",
+    "difficulty": "medium",
+    "question": "Describe a situation where you helped a team recover from a setback. Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on Problem Solving.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Problem Solving",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_049",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Problem Solving",
+    "difficulty": "medium",
+    "question": "Give an example of how you balanced quality and speed under pressure. Frame your answer around while balancing speed and quality, with specific focus on Problem Solving.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Problem Solving",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "behavioral_050",
+    "company": "target company",
+    "round": "Behavioral",
+    "topic": "Problem Solving",
+    "difficulty": "medium",
+    "question": "Tell me about a time you disagreed with a teammate and still delivered the outcome. Frame your answer around when measuring impact with clear evidence, with specific focus on Problem Solving.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Behavioral",
+      "Problem Solving",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  }
+]

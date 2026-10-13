@@ -1,0 +1,182 @@
+[
+  {
+    "id": "aptitude_001",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "easy",
+    "question": "A candidate improves a test score from 60 to 75. What is the percentage increase?",
+    "answerHint": "Use change divided by original.",
+    "expectedAnswerPoints": [
+      "Difference",
+      "Base value",
+      "Percentage"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_002",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "easy",
+    "question": "If 4 people finish a task in 12 days, how many days will 6 people take at the same rate?",
+    "answerHint": "Use inverse proportionality.",
+    "expectedAnswerPoints": [
+      "Work rate",
+      "Inverse relation",
+      "Calculation"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_003",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "easy",
+    "question": "A product bought for 800 is sold at 920. Find the profit percentage.",
+    "answerHint": "Profit divided by cost price.",
+    "expectedAnswerPoints": [
+      "Profit amount",
+      "Cost base",
+      "Percentage"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_004",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Ratio",
+    "difficulty": "easy",
+    "question": "Divide 900 in the ratio 2:3:4.",
+    "answerHint": "Use sum of ratio parts.",
+    "expectedAnswerPoints": [
+      "Ratio sum",
+      "Unit value",
+      "Shares"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_005",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "easy",
+    "question": "What is the probability of getting an even number on one fair die roll?",
+    "answerHint": "Count favorable outcomes.",
+    "expectedAnswerPoints": [
+      "Sample space",
+      "Favorable cases",
+      "Probability"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_006",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Average",
+    "difficulty": "easy",
+    "question": "The average of five numbers is 24. If one number is 40, what is the average of the remaining four?",
+    "answerHint": "Use total sum.",
+    "expectedAnswerPoints": [
+      "Total sum",
+      "Subtract known value",
+      "New average"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_007",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "easy",
+    "question": "Find simple interest on 5000 at 8 percent per year for 2 years.",
+    "answerHint": "Use PRT/100.",
+    "expectedAnswerPoints": [
+      "Principal",
+      "Rate",
+      "Time"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_008",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Speed",
+    "difficulty": "easy",
+    "question": "A train travels 180 km in 3 hours. What is its average speed?",
+    "answerHint": "Distance divided by time.",
+    "expectedAnswerPoints": [
+      "Distance",
+      "Time",
+      "Speed"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_009",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Logical Reasoning",
+    "difficulty": "easy",
+    "question": "If all developers are problem solvers and some problem solvers are designers, what can be concluded?",
+    "answerHint": "Avoid unsupported conclusions.",
+    "expectedAnswerPoints": [
+      "Set relation",
+      "Valid inference",
+      "Limitations"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_010",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Data Interpretation",
+    "difficulty": "easy",
+    "question": "If interview pass rates are 40%, 50%, and 60% across three batches of equal size, what is the average pass rate?",
+    "answerHint": "Equal-size average.",
+    "expectedAnswerPoints": [
+      "Equal weights",
+      "Average",
+      "Interpretation"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  }
+]

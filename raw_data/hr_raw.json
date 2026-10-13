@@ -1,0 +1,219 @@
+[
+  {
+    "id": "hr_001",
+    "company": "",
+    "round": "HR",
+    "topic": "Introduction",
+    "difficulty": "medium",
+    "question": "Tell me about yourself and connect your background to the role.",
+    "answerHint": "Keep it concise and role-focused.",
+    "expectedAnswerPoints": [
+      "Brief background",
+      "Relevant skills",
+      "Career direction"
+    ],
+    "tags": [
+      "HR"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "hr_002",
+    "company": "",
+    "round": "HR",
+    "topic": "Motivation",
+    "difficulty": "easy",
+    "question": "Why do you want to work for this company and this role?",
+    "answerHint": "Show research and specific motivation.",
+    "expectedAnswerPoints": [
+      "Company research",
+      "Role alignment",
+      "Growth motivation"
+    ],
+    "tags": [
+      "HR"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "hr_003",
+    "company": "",
+    "round": "HR",
+    "topic": "Strengths",
+    "difficulty": "easy",
+    "question": "What is your strongest professional strength and where have you demonstrated it?",
+    "answerHint": "Use evidence, not only adjectives.",
+    "expectedAnswerPoints": [
+      "Strength",
+      "Example",
+      "Outcome"
+    ],
+    "tags": [
+      "HR"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "hr_004",
+    "company": "",
+    "round": "HR",
+    "topic": "Weakness",
+    "difficulty": "medium",
+    "question": "Tell me about one area you are actively improving.",
+    "answerHint": "Be honest and show a corrective action.",
+    "expectedAnswerPoints": [
+      "Real weakness",
+      "Improvement plan",
+      "Progress evidence"
+    ],
+    "tags": [
+      "HR"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "hr_005",
+    "company": "",
+    "round": "HR",
+    "topic": "Career Goals",
+    "difficulty": "medium",
+    "question": "Where do you see yourself in the next two to three years?",
+    "answerHint": "Connect ambition with learning and contribution.",
+    "expectedAnswerPoints": [
+      "Clear goal",
+      "Role fit",
+      "Learning plan"
+    ],
+    "tags": [
+      "HR"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "hr_006",
+    "company": "",
+    "round": "HR",
+    "topic": "Adaptability",
+    "difficulty": "medium",
+    "question": "Describe a situation where you had to learn something quickly.",
+    "answerHint": "Use a concrete example.",
+    "expectedAnswerPoints": [
+      "Context",
+      "Learning method",
+      "Result"
+    ],
+    "tags": [
+      "HR"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "hr_007",
+    "company": "",
+    "round": "HR",
+    "topic": "Ownership",
+    "difficulty": "medium",
+    "question": "Tell me about a time you took ownership without being asked.",
+    "answerHint": "Show initiative and impact.",
+    "expectedAnswerPoints": [
+      "Problem",
+      "Action",
+      "Impact"
+    ],
+    "tags": [
+      "HR"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "hr_008",
+    "company": "",
+    "round": "HR",
+    "topic": "Feedback",
+    "difficulty": "medium",
+    "question": "How do you respond when you receive critical feedback?",
+    "answerHint": "Show maturity and action.",
+    "expectedAnswerPoints": [
+      "Listening",
+      "Reflection",
+      "Improvement"
+    ],
+    "tags": [
+      "HR"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "hr_009",
+    "company": "",
+    "round": "HR",
+    "topic": "Pressure",
+    "difficulty": "medium",
+    "question": "How do you manage deadlines when multiple tasks compete for attention?",
+    "answerHint": "Explain prioritization.",
+    "expectedAnswerPoints": [
+      "Prioritization",
+      "Communication",
+      "Delivery"
+    ],
+    "tags": [
+      "HR"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "hr_010",
+    "company": "",
+    "round": "HR",
+    "topic": "Culture Fit",
+    "difficulty": "medium",
+    "question": "What type of team environment helps you do your best work?",
+    "answerHint": "Balance preferences with adaptability.",
+    "expectedAnswerPoints": [
+      "Team preference",
+      "Collaboration style",
+      "Adaptability"
+    ],
+    "tags": [
+      "HR",
+      "Teamwork"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "hr_011",
+    "company": "",
+    "round": "HR",
+    "topic": "Decision Making",
+    "difficulty": "medium",
+    "question": "Describe a decision you made with incomplete information.",
+    "answerHint": "Show structured judgment.",
+    "expectedAnswerPoints": [
+      "Available data",
+      "Decision logic",
+      "Risk handling"
+    ],
+    "tags": [
+      "HR"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "hr_012",
+    "company": "",
+    "round": "HR",
+    "topic": "Closing",
+    "difficulty": "easy",
+    "question": "Why should we select you over other candidates?",
+    "answerHint": "Summarize fit with evidence.",
+    "expectedAnswerPoints": [
+      "Role fit",
+      "Proof points",
+      "Confidence"
+    ],
+    "tags": [
+      "HR"
+    ],
+    "source": "IndiaBIX-style curated"
+  }
+]

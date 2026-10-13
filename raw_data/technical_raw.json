@@ -1,0 +1,288 @@
+[
+  {
+    "id": "technical_001",
+    "company": "",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "Explain encapsulation, inheritance, polymorphism, and abstraction with one practical example.",
+    "answerHint": "Cover definitions and usage.",
+    "expectedAnswerPoints": [
+      "Four OOP pillars",
+      "Example",
+      "Trade-offs"
+    ],
+    "tags": [
+      "Technical",
+      "OOP"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_002",
+    "company": "",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "hard",
+    "question": "How would you design tables for a student interview platform and avoid duplicate data?",
+    "answerHint": "Discuss normalization and keys.",
+    "expectedAnswerPoints": [
+      "Entities",
+      "Relationships",
+      "Normalization"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_003",
+    "company": "",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "easy",
+    "question": "What is the difference between INNER JOIN, LEFT JOIN, and RIGHT JOIN?",
+    "answerHint": "Explain with use cases.",
+    "expectedAnswerPoints": [
+      "Join behavior",
+      "Null handling",
+      "Example"
+    ],
+    "tags": [
+      "Technical",
+      "SQL"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_004",
+    "company": "",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "hard",
+    "question": "Design a REST API endpoint for submitting an interview answer.",
+    "answerHint": "Include request, validation, and response.",
+    "expectedAnswerPoints": [
+      "Endpoint design",
+      "Validation",
+      "Error handling"
+    ],
+    "tags": [
+      "Technical",
+      "API"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_005",
+    "company": "",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "How do React state, props, and effects work together in an interview room UI?",
+    "answerHint": "Connect concepts to UI behavior.",
+    "expectedAnswerPoints": [
+      "State",
+      "Props",
+      "Effects"
+    ],
+    "tags": [
+      "Technical",
+      "React"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_006",
+    "company": "",
+    "round": "Technical",
+    "topic": "Python",
+    "difficulty": "medium",
+    "question": "How would you handle exceptions and logging in a FastAPI service?",
+    "answerHint": "Explain reliability.",
+    "expectedAnswerPoints": [
+      "Try/except",
+      "HTTP errors",
+      "Structured logs"
+    ],
+    "tags": [
+      "Technical",
+      "Python",
+      "API",
+      "FastAPI"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_007",
+    "company": "",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "What happens when a FastAPI request reaches a route handler?",
+    "answerHint": "Explain the lifecycle.",
+    "expectedAnswerPoints": [
+      "Routing",
+      "Validation",
+      "Response model"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "FastAPI"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_008",
+    "company": "",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "How would you structure Firestore collections for users, interviews, evaluations, and reports?",
+    "answerHint": "Discuss document design.",
+    "expectedAnswerPoints": [
+      "Collections",
+      "Relationships",
+      "Query needs"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_009",
+    "company": "",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "How do you prevent overfitting in a machine learning model?",
+    "answerHint": "Mention validation and regularization.",
+    "expectedAnswerPoints": [
+      "Train/test split",
+      "Regularization",
+      "Evaluation metrics"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_010",
+    "company": "",
+    "round": "Technical",
+    "topic": "System Design",
+    "difficulty": "hard",
+    "question": "Design a scalable AI interview platform that records video and sends reports by email.",
+    "answerHint": "Think through components.",
+    "expectedAnswerPoints": [
+      "Frontend",
+      "Backend",
+      "Storage",
+      "Email workflow"
+    ],
+    "tags": [
+      "Technical"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_011",
+    "company": "",
+    "round": "Technical",
+    "topic": "Security",
+    "difficulty": "medium",
+    "question": "What security risks exist when uploading resumes and generating reports?",
+    "answerHint": "Mention validation and secrets.",
+    "expectedAnswerPoints": [
+      "File validation",
+      "Secret handling",
+      "Access control"
+    ],
+    "tags": [
+      "Technical"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_012",
+    "company": "",
+    "round": "Technical",
+    "topic": "Testing",
+    "difficulty": "medium",
+    "question": "How would you test a resume upload API and an interview evaluation API?",
+    "answerHint": "Cover unit and integration tests.",
+    "expectedAnswerPoints": [
+      "Test cases",
+      "Mocking",
+      "Assertions"
+    ],
+    "tags": [
+      "Technical",
+      "API"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_013",
+    "company": "",
+    "round": "Technical",
+    "topic": "Performance",
+    "difficulty": "medium",
+    "question": "How would you reduce latency in an AI-powered interview question generation flow?",
+    "answerHint": "Discuss caching and async work.",
+    "expectedAnswerPoints": [
+      "Caching",
+      "Async processing",
+      "Timeout handling"
+    ],
+    "tags": [
+      "Technical"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_014",
+    "company": "",
+    "round": "Technical",
+    "topic": "Architecture",
+    "difficulty": "medium",
+    "question": "When would you choose SQL over Firestore for an analytics-heavy product?",
+    "answerHint": "Compare data models.",
+    "expectedAnswerPoints": [
+      "Relational needs",
+      "Query patterns",
+      "Consistency"
+    ],
+    "tags": [
+      "Technical",
+      "SQL"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_015",
+    "company": "",
+    "round": "Technical",
+    "topic": "Debugging",
+    "difficulty": "medium",
+    "question": "A production API returns the same job insights for every company. How would you debug it?",
+    "answerHint": "Trace inputs and external calls.",
+    "expectedAnswerPoints": [
+      "Input tracing",
+      "Cache check",
+      "API response validation"
+    ],
+    "tags": [
+      "Technical",
+      "API"
+    ],
+    "source": "IndiaBIX-style curated"
+  }
+]

@@ -1,0 +1,1652 @@
+[
+  {
+    "id": "aptitude_001",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "easy",
+    "question": "A candidate improves a test score from 60 to 75. What is the percentage increase?",
+    "answerHint": "Use change divided by original.",
+    "expectedAnswerPoints": [
+      "Difference",
+      "Base value",
+      "Percentage"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_002",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "easy",
+    "question": "If 4 people finish a task in 12 days, how many days will 6 people take at the same rate?",
+    "answerHint": "Use inverse proportionality.",
+    "expectedAnswerPoints": [
+      "Work rate",
+      "Inverse relation",
+      "Calculation"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_003",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "easy",
+    "question": "A product bought for 800 is sold at 920. Find the profit percentage.",
+    "answerHint": "Profit divided by cost price.",
+    "expectedAnswerPoints": [
+      "Profit amount",
+      "Cost base",
+      "Percentage"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_004",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Ratio",
+    "difficulty": "easy",
+    "question": "Divide 900 in the ratio 2:3:4.",
+    "answerHint": "Use sum of ratio parts.",
+    "expectedAnswerPoints": [
+      "Ratio sum",
+      "Unit value",
+      "Shares"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_005",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "easy",
+    "question": "What is the probability of getting an even number on one fair die roll?",
+    "answerHint": "Count favorable outcomes.",
+    "expectedAnswerPoints": [
+      "Sample space",
+      "Favorable cases",
+      "Probability"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_006",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Average",
+    "difficulty": "easy",
+    "question": "The average of five numbers is 24. If one number is 40, what is the average of the remaining four?",
+    "answerHint": "Use total sum.",
+    "expectedAnswerPoints": [
+      "Total sum",
+      "Subtract known value",
+      "New average"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_007",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "easy",
+    "question": "Find simple interest on 5000 at 8 percent per year for 2 years.",
+    "answerHint": "Use PRT/100.",
+    "expectedAnswerPoints": [
+      "Principal",
+      "Rate",
+      "Time"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_008",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Speed",
+    "difficulty": "easy",
+    "question": "A train travels 180 km in 3 hours. What is its average speed?",
+    "answerHint": "Distance divided by time.",
+    "expectedAnswerPoints": [
+      "Distance",
+      "Time",
+      "Speed"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_009",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Logical Reasoning",
+    "difficulty": "easy",
+    "question": "If all developers are problem solvers and some problem solvers are designers, what can be concluded?",
+    "answerHint": "Avoid unsupported conclusions.",
+    "expectedAnswerPoints": [
+      "Set relation",
+      "Valid inference",
+      "Limitations"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_010",
+    "company": "",
+    "round": "Aptitude",
+    "topic": "Data Interpretation",
+    "difficulty": "easy",
+    "question": "If interview pass rates are 40%, 50%, and 60% across three batches of equal size, what is the average pass rate?",
+    "answerHint": "Equal-size average.",
+    "expectedAnswerPoints": [
+      "Equal weights",
+      "Average",
+      "Interpretation"
+    ],
+    "tags": [
+      "Aptitude"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "aptitude_011",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around during a production deadline, with specific focus on Percentages.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Percentages",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_012",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around while collaborating with a cross-functional team, with specific focus on Percentages.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Percentages",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_013",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around when requirements are incomplete, with specific focus on Percentages.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Percentages",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_014",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around after receiving critical feedback, with specific focus on Percentages.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Percentages",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_015",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while improving reliability, with specific focus on Percentages.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Percentages",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_016",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on Percentages.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Percentages",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_017",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around while balancing speed and quality, with specific focus on Percentages.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Percentages",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_018",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around when measuring impact with clear evidence, with specific focus on Percentages.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Percentages",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_019",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while debugging an unexpected issue, with specific focus on Percentages.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Percentages",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_020",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around when choosing between two possible approaches, with specific focus on Percentages.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Percentages",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_021",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around during a production deadline, with specific focus on Time and Work.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Time and Work",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_022",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around when requirements are incomplete, with specific focus on Time and Work.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Time and Work",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_023",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while improving reliability, with specific focus on Time and Work.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Time and Work",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_024",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around when requirements are incomplete, with specific focus on Profit and Loss.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Profit and Loss",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_025",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around while collaborating with a cross-functional team, with specific focus on Time and Work.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Time and Work",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_026",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around after receiving critical feedback, with specific focus on Time and Work.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Time and Work",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_027",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on Time and Work.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Time and Work",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_028",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around while balancing speed and quality, with specific focus on Time and Work.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Time and Work",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_029",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around when measuring impact with clear evidence, with specific focus on Time and Work.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Time and Work",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_030",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while debugging an unexpected issue, with specific focus on Time and Work.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Time and Work",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_031",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around when choosing between two possible approaches, with specific focus on Time and Work.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Time and Work",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_032",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around during a production deadline, with specific focus on Profit and Loss.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Profit and Loss",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_033",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around while collaborating with a cross-functional team, with specific focus on Profit and Loss.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Profit and Loss",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_034",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around after receiving critical feedback, with specific focus on Profit and Loss.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Profit and Loss",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_035",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while improving reliability, with specific focus on Profit and Loss.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Profit and Loss",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_036",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on Profit and Loss.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Profit and Loss",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_037",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around while balancing speed and quality, with specific focus on Profit and Loss.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Profit and Loss",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_038",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around when measuring impact with clear evidence, with specific focus on Profit and Loss.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Profit and Loss",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_039",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while debugging an unexpected issue, with specific focus on Profit and Loss.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Profit and Loss",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_040",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around when choosing between two possible approaches, with specific focus on Profit and Loss.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Profit and Loss",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_041",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Ratio",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around during a production deadline, with specific focus on Ratio.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Ratio",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_042",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Ratio",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around while collaborating with a cross-functional team, with specific focus on Ratio.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Ratio",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_043",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Ratio",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around when requirements are incomplete, with specific focus on Ratio.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Ratio",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_044",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Ratio",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around after receiving critical feedback, with specific focus on Ratio.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Ratio",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_045",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Ratio",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while improving reliability, with specific focus on Ratio.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Ratio",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_046",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Ratio",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around while balancing speed and quality, with specific focus on Ratio.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Ratio",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_047",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Ratio",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around when measuring impact with clear evidence, with specific focus on Ratio.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Ratio",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_048",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Ratio",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while debugging an unexpected issue, with specific focus on Ratio.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Ratio",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_049",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around during a production deadline, with specific focus on Probability.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Probability",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_050",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around while collaborating with a cross-functional team, with specific focus on Probability.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Probability",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_051",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around when requirements are incomplete, with specific focus on Probability.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Probability",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_052",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around after receiving critical feedback, with specific focus on Probability.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Probability",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_053",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while improving reliability, with specific focus on Probability.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Probability",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_054",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around while balancing speed and quality, with specific focus on Probability.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Probability",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_055",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around when measuring impact with clear evidence, with specific focus on Probability.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Probability",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_056",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while debugging an unexpected issue, with specific focus on Probability.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Probability",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_057",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Average",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around during a production deadline, with specific focus on Average.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Average",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_058",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Average",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around while collaborating with a cross-functional team, with specific focus on Average.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Average",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_059",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Average",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around when requirements are incomplete, with specific focus on Average.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Average",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_060",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Average",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while improving reliability, with specific focus on Average.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Average",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_061",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Average",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around while balancing speed and quality, with specific focus on Average.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Average",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_062",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Average",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while debugging an unexpected issue, with specific focus on Average.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Average",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_063",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around during a production deadline, with specific focus on Simple Interest.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Simple Interest",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_064",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around while collaborating with a cross-functional team, with specific focus on Simple Interest.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Simple Interest",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_065",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around when requirements are incomplete, with specific focus on Simple Interest.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Simple Interest",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_066",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around after receiving critical feedback, with specific focus on Simple Interest.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Simple Interest",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_067",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while improving reliability, with specific focus on Simple Interest.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Simple Interest",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_068",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on Simple Interest.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Simple Interest",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_069",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around while balancing speed and quality, with specific focus on Simple Interest.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Simple Interest",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_070",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around when measuring impact with clear evidence, with specific focus on Simple Interest.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Simple Interest",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_071",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while debugging an unexpected issue, with specific focus on Simple Interest.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Simple Interest",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_072",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around when choosing between two possible approaches, with specific focus on Simple Interest.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Simple Interest",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_073",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Speed",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around during a production deadline, with specific focus on Speed.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Speed",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_074",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Speed",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around while collaborating with a cross-functional team, with specific focus on Speed.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Speed",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_075",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Speed",
+    "difficulty": "medium",
+    "question": "A candidate solves 70 percent of 40 problems. How many problems are unsolved? Frame your answer around when requirements are incomplete, with specific focus on Speed.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Speed",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_076",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Speed",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around after receiving critical feedback, with specific focus on Speed.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Speed",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_077",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Speed",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around while improving reliability, with specific focus on Speed.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Speed",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_078",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Speed",
+    "difficulty": "medium",
+    "question": "If three interview rounds have scores 65, 75, and 85, what is the average score? Frame your answer around when measuring impact with clear evidence, with specific focus on Speed.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Speed",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_079",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Logical Reasoning",
+    "difficulty": "medium",
+    "question": "A project metric improves from 48 to 60. What is the percentage improvement? Frame your answer around during a production deadline, with specific focus on Logical Reasoning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Logical Reasoning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "aptitude_080",
+    "company": "target company",
+    "round": "Aptitude",
+    "topic": "Logical Reasoning",
+    "difficulty": "medium",
+    "question": "If 5 developers finish a module in 18 days, how many days would 9 developers take at the same rate? Frame your answer around while collaborating with a cross-functional team, with specific focus on Logical Reasoning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Aptitude",
+      "Logical Reasoning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  }
+]

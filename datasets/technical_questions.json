@@ -1,0 +1,2073 @@
+[
+  {
+    "id": "technical_001",
+    "company": "",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "Explain encapsulation, inheritance, polymorphism, and abstraction with one practical example.",
+    "answerHint": "Cover definitions and usage.",
+    "expectedAnswerPoints": [
+      "Four OOP pillars",
+      "Example",
+      "Trade-offs"
+    ],
+    "tags": [
+      "Technical",
+      "OOP"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_002",
+    "company": "",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "hard",
+    "question": "How would you design tables for a student interview platform and avoid duplicate data?",
+    "answerHint": "Discuss normalization and keys.",
+    "expectedAnswerPoints": [
+      "Entities",
+      "Relationships",
+      "Normalization"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_003",
+    "company": "",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "easy",
+    "question": "What is the difference between INNER JOIN, LEFT JOIN, and RIGHT JOIN?",
+    "answerHint": "Explain with use cases.",
+    "expectedAnswerPoints": [
+      "Join behavior",
+      "Null handling",
+      "Example"
+    ],
+    "tags": [
+      "Technical",
+      "SQL"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_004",
+    "company": "",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "hard",
+    "question": "Design a REST API endpoint for submitting an interview answer.",
+    "answerHint": "Include request, validation, and response.",
+    "expectedAnswerPoints": [
+      "Endpoint design",
+      "Validation",
+      "Error handling"
+    ],
+    "tags": [
+      "Technical",
+      "API"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_005",
+    "company": "",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "How do React state, props, and effects work together in an interview room UI?",
+    "answerHint": "Connect concepts to UI behavior.",
+    "expectedAnswerPoints": [
+      "State",
+      "Props",
+      "Effects"
+    ],
+    "tags": [
+      "Technical",
+      "React"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_006",
+    "company": "",
+    "round": "Technical",
+    "topic": "Python",
+    "difficulty": "medium",
+    "question": "How would you handle exceptions and logging in a FastAPI service?",
+    "answerHint": "Explain reliability.",
+    "expectedAnswerPoints": [
+      "Try/except",
+      "HTTP errors",
+      "Structured logs"
+    ],
+    "tags": [
+      "Technical",
+      "Python",
+      "API",
+      "FastAPI"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_007",
+    "company": "",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "What happens when a FastAPI request reaches a route handler?",
+    "answerHint": "Explain the lifecycle.",
+    "expectedAnswerPoints": [
+      "Routing",
+      "Validation",
+      "Response model"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "FastAPI"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_008",
+    "company": "",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "How would you structure Firestore collections for users, interviews, evaluations, and reports?",
+    "answerHint": "Discuss document design.",
+    "expectedAnswerPoints": [
+      "Collections",
+      "Relationships",
+      "Query needs"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_009",
+    "company": "",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "How do you prevent overfitting in a machine learning model?",
+    "answerHint": "Mention validation and regularization.",
+    "expectedAnswerPoints": [
+      "Train/test split",
+      "Regularization",
+      "Evaluation metrics"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_010",
+    "company": "",
+    "round": "Technical",
+    "topic": "System Design",
+    "difficulty": "hard",
+    "question": "Design a scalable AI interview platform that records video and sends reports by email.",
+    "answerHint": "Think through components.",
+    "expectedAnswerPoints": [
+      "Frontend",
+      "Backend",
+      "Storage",
+      "Email workflow"
+    ],
+    "tags": [
+      "Technical"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_011",
+    "company": "",
+    "round": "Technical",
+    "topic": "Security",
+    "difficulty": "medium",
+    "question": "What security risks exist when uploading resumes and generating reports?",
+    "answerHint": "Mention validation and secrets.",
+    "expectedAnswerPoints": [
+      "File validation",
+      "Secret handling",
+      "Access control"
+    ],
+    "tags": [
+      "Technical"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_012",
+    "company": "",
+    "round": "Technical",
+    "topic": "Testing",
+    "difficulty": "medium",
+    "question": "How would you test a resume upload API and an interview evaluation API?",
+    "answerHint": "Cover unit and integration tests.",
+    "expectedAnswerPoints": [
+      "Test cases",
+      "Mocking",
+      "Assertions"
+    ],
+    "tags": [
+      "Technical",
+      "API"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_013",
+    "company": "",
+    "round": "Technical",
+    "topic": "Performance",
+    "difficulty": "medium",
+    "question": "How would you reduce latency in an AI-powered interview question generation flow?",
+    "answerHint": "Discuss caching and async work.",
+    "expectedAnswerPoints": [
+      "Caching",
+      "Async processing",
+      "Timeout handling"
+    ],
+    "tags": [
+      "Technical"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_014",
+    "company": "",
+    "round": "Technical",
+    "topic": "Architecture",
+    "difficulty": "medium",
+    "question": "When would you choose SQL over Firestore for an analytics-heavy product?",
+    "answerHint": "Compare data models.",
+    "expectedAnswerPoints": [
+      "Relational needs",
+      "Query patterns",
+      "Consistency"
+    ],
+    "tags": [
+      "Technical",
+      "SQL"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_015",
+    "company": "",
+    "round": "Technical",
+    "topic": "Debugging",
+    "difficulty": "medium",
+    "question": "A production API returns the same job insights for every company. How would you debug it?",
+    "answerHint": "Trace inputs and external calls.",
+    "expectedAnswerPoints": [
+      "Input tracing",
+      "Cache check",
+      "API response validation"
+    ],
+    "tags": [
+      "Technical",
+      "API"
+    ],
+    "source": "IndiaBIX-style curated"
+  },
+  {
+    "id": "technical_016",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around during a production deadline, with specific focus on OOP.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "OOP",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_017",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around while collaborating with a cross-functional team, with specific focus on OOP.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "OOP",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_018",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around when requirements are incomplete, with specific focus on OOP.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "OOP",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_019",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around after receiving critical feedback, with specific focus on OOP.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "OOP",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_020",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while improving reliability, with specific focus on OOP.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "OOP",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_021",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on OOP.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "OOP",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_022",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around while balancing speed and quality, with specific focus on OOP.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "OOP",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_023",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around when measuring impact with clear evidence, with specific focus on OOP.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "OOP",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_024",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while debugging an unexpected issue, with specific focus on OOP.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "OOP",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_025",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "OOP",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when choosing between two possible approaches, with specific focus on OOP.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "OOP",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_026",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around during a production deadline, with specific focus on DBMS.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_027",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around while collaborating with a cross-functional team, with specific focus on DBMS.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_028",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around when requirements are incomplete, with specific focus on DBMS.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_029",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around after receiving critical feedback, with specific focus on DBMS.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_030",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while improving reliability, with specific focus on DBMS.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_031",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on DBMS.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_032",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around while balancing speed and quality, with specific focus on DBMS.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_033",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around when measuring impact with clear evidence, with specific focus on DBMS.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_034",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while debugging an unexpected issue, with specific focus on DBMS.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_035",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "DBMS",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when choosing between two possible approaches, with specific focus on DBMS.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "DBMS",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_036",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around during a production deadline, with specific focus on SQL.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "SQL",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_037",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around while collaborating with a cross-functional team, with specific focus on SQL.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "SQL",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_038",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around when requirements are incomplete, with specific focus on SQL.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "SQL",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_039",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around after receiving critical feedback, with specific focus on SQL.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "SQL",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_040",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while improving reliability, with specific focus on SQL.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "SQL",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_041",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on SQL.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "SQL",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_042",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around while balancing speed and quality, with specific focus on SQL.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "SQL",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_043",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around when measuring impact with clear evidence, with specific focus on SQL.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "SQL",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_044",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while debugging an unexpected issue, with specific focus on SQL.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "SQL",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_045",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when choosing between two possible approaches, with specific focus on SQL.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "SQL",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_046",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around during a production deadline, with specific focus on API.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_047",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around while collaborating with a cross-functional team, with specific focus on API.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_048",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around when requirements are incomplete, with specific focus on API.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_049",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around after receiving critical feedback, with specific focus on API.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_050",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while improving reliability, with specific focus on API.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_051",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on API.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_052",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around while balancing speed and quality, with specific focus on API.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_053",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around when measuring impact with clear evidence, with specific focus on API.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_054",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while debugging an unexpected issue, with specific focus on API.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_055",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "API",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when choosing between two possible approaches, with specific focus on API.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "API",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_056",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around during a production deadline, with specific focus on React.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "React",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_057",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around while collaborating with a cross-functional team, with specific focus on React.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "React",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_058",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around when requirements are incomplete, with specific focus on React.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "React",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_059",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around after receiving critical feedback, with specific focus on React.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "React",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_060",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while improving reliability, with specific focus on React.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "React",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_061",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on React.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "React",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_062",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around while balancing speed and quality, with specific focus on React.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "React",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_063",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around when measuring impact with clear evidence, with specific focus on React.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "React",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_064",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while debugging an unexpected issue, with specific focus on React.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "React",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_065",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "React",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when choosing between two possible approaches, with specific focus on React.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "React",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_066",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around during a production deadline, with specific focus on FastAPI.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "FastAPI",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_067",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around while collaborating with a cross-functional team, with specific focus on FastAPI.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "FastAPI",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_068",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around when requirements are incomplete, with specific focus on FastAPI.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "FastAPI",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_069",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around after receiving critical feedback, with specific focus on FastAPI.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "FastAPI",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_070",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while improving reliability, with specific focus on FastAPI.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "FastAPI",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_071",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on FastAPI.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "FastAPI",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_072",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around while balancing speed and quality, with specific focus on FastAPI.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "FastAPI",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_073",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around when measuring impact with clear evidence, with specific focus on FastAPI.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "FastAPI",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_074",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while debugging an unexpected issue, with specific focus on FastAPI.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "FastAPI",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_075",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "FastAPI",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when choosing between two possible approaches, with specific focus on FastAPI.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "FastAPI",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_076",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around during a production deadline, with specific focus on Firebase.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_077",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around while collaborating with a cross-functional team, with specific focus on Firebase.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_078",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around when requirements are incomplete, with specific focus on Firebase.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_079",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around after receiving critical feedback, with specific focus on Firebase.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_080",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while improving reliability, with specific focus on Firebase.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_081",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on Firebase.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_082",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around while balancing speed and quality, with specific focus on Firebase.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_083",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around when measuring impact with clear evidence, with specific focus on Firebase.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_084",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while debugging an unexpected issue, with specific focus on Firebase.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_085",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Firebase",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when choosing between two possible approaches, with specific focus on Firebase.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Firebase",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_086",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around during a production deadline, with specific focus on Machine Learning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_087",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around while collaborating with a cross-functional team, with specific focus on Machine Learning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_088",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around when requirements are incomplete, with specific focus on Machine Learning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_089",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around after receiving critical feedback, with specific focus on Machine Learning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_090",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while improving reliability, with specific focus on Machine Learning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_091",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when explaining the work to a non-technical stakeholder, with specific focus on Machine Learning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_092",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around while balancing speed and quality, with specific focus on Machine Learning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_093",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around when measuring impact with clear evidence, with specific focus on Machine Learning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_094",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while debugging an unexpected issue, with specific focus on Machine Learning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_095",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "Machine Learning",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around when choosing between two possible approaches, with specific focus on Machine Learning.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "Machine Learning",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_096",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "System Design",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around during a production deadline, with specific focus on System Design.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "System Design",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_097",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "System Design",
+    "difficulty": "medium",
+    "question": "What trade-offs would you consider while designing a system that uses Python? Frame your answer around while collaborating with a cross-functional team, with specific focus on System Design.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "System Design",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_098",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "System Design",
+    "difficulty": "medium",
+    "question": "Explain a failure scenario involving Python and how you would detect and recover from it. Frame your answer around when requirements are incomplete, with specific focus on System Design.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "System Design",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_099",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "System Design",
+    "difficulty": "medium",
+    "question": "How would you test, monitor, and improve a feature built with Python? Frame your answer around after receiving critical feedback, with specific focus on System Design.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "System Design",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  },
+  {
+    "id": "technical_100",
+    "company": "target company",
+    "round": "Technical",
+    "topic": "System Design",
+    "difficulty": "medium",
+    "question": "How would you apply Python to solve a production problem in a Software Engineer role? Frame your answer around while improving reliability, with specific focus on System Design.",
+    "answerHint": "Answer with a structured explanation and a concrete example.",
+    "expectedAnswerPoints": [
+      "Direct answer",
+      "Relevant example",
+      "Clear reasoning",
+      "Outcome or trade-off"
+    ],
+    "tags": [
+      "Technical",
+      "System Design",
+      "Software Engineer"
+    ],
+    "source": "AI-generated from curated dataset pattern"
+  }
+]
